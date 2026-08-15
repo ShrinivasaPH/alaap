@@ -46,14 +46,14 @@ button{font-family:inherit}
 html[data-lang="kn"] .display{font-family:'Noto Serif Kannada',serif; font-weight:700; line-height:1.4; letter-spacing:0}
 html[data-lang="en"] .display{font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:-.005em}
 
-.wrap{max-width:var(--wrap); margin:0 auto; padding:0 22px}
+.wrap{max-width:var(--wrap); margin:0 auto; padding-inline:22px}
 .eyebrow{
   font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
   color:var(--brand); display:flex; align-items:center; gap:9px;
 }
 html[data-lang="kn"] .eyebrow{letter-spacing:.05em; text-transform:none; font-size:14px}
 .eyebrow::before{content:""; width:22px; height:2px; background:var(--saffron); border-radius:2px; flex:none}
-.sect{padding:94px 0 8px}
+.sect{padding-block:94px 8px}
 .sect-head{max-width:660px; margin-bottom:38px}
 .sect-head h2{font-size:clamp(32px,4.8vw,50px); margin:12px 0 10px}
 .sect-head p{color:var(--ink2); margin:0; font-size:17.5px}
@@ -339,7 +339,7 @@ td.fee{color:var(--brand); font-weight:700; white-space:nowrap}
 
 /* ── footer ─────────────────────────────────────────────── */
 footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper)}
-.foot{display:flex; align-items:center; justify-content:space-between; gap:22px; padding:30px 0; flex-wrap:wrap; font-size:14.5px; color:var(--ink2)}
+.foot{display:flex; align-items:center; justify-content:space-between; gap:22px; padding-block:30px; flex-wrap:wrap; font-size:14.5px; color:var(--ink2)}
 .social{display:flex; gap:9px}
 .social a{width:40px; height:40px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; transition:.22s var(--ease)}
 .social a:hover{background:var(--brand); border-color:var(--brand); transform:translateY(-3px)}
@@ -400,7 +400,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   .burger{display:block}
   .lang{margin:8px 0 0; justify-content:center}
   .bar{gap:12px}
-  .sect{padding:70px 0 4px}
+  .sect{padding-block:70px 4px}
   .rungs{height:150px; gap:3px}
   .rung{border-radius:11px 11px 7px 7px}
   .rung .g{font-size:16px}
@@ -408,8 +408,25 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   .form-card{padding:24px}
 }
 @media (max-width:600px){
+  .wrap{padding-inline:20px}
   .courses,.voices,.crew,.two{grid-template-columns:1fr}
-  .notice-label{padding:13px 22px 13px 16px; font-size:13px}
+  .sect-head{margin-bottom:30px}
+  .hero{padding-top:44px}
+  .hero h1{max-width:none}
+  .quote{padding:0 22px; font-size:17.5px}
+  .board{margin-top:34px}
+  .form-card{padding:20px 18px}
+  .ledger{padding:6px 20px}
+  .person{padding:22px 20px}
+  .voice{padding:22px 20px}
+  .sheet-hero{padding:26px 22px 22px}
+  .sheet-body{padding:24px 22px 30px}
+  .sheet-hero > div{margin:-26px -22px 20px !important; padding:32px 22px 26px !important}
+  .notice-label{padding:13px 24px 13px 20px}
+  .tick{padding:13px 20px}
+  #toTop{right:16px; bottom:16px}
+  .notice-label{font-size:13px}
+  .foot{flex-direction:column; align-items:flex-start; gap:16px; text-align:left}
   .board{padding:20px 16px 18px; border-radius:22px}
   .rungs{gap:2px; height:126px}
   .rung{border-radius:8px 8px 5px 5px}
