@@ -7,23 +7,23 @@
 <meta name="description" content="Alaap Sangeetha Shale — a music school in Bengaluru. Carnatic and Hindustani vocal, film singing, keyboard, tabla, violin and guitar. Small batches, two recitals a year.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anek+Kannada:wght@300..700&family=Instrument+Serif:ital@0;1&family=Noto+Serif+Kannada:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Kannada:wght@300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+Kannada:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ── tokens ─────────────────────────────────────────────── */
 :root{
-  --hall:#EEF5F1;         /* pale sruti-green house light */
+  --hall:#FCEEE6;         /* warm blush — concert-hall paper */
   --paper:#FFFFFF;
-  --ink:#16332C;          /* deep pine ink */
-  --ink2:#54736A;
-  --teal:#0E6F72;         /* tanpura brass-and-teal — brand */
-  --teal-soft:#DCEDEC;
-  --saffron:#EFA038;      /* turmeric */
-  --kumkum:#D2436B;       /* rose-red */
-  --indigo:#4C5BC7;       /* cool third */
-  --line:#DAE8E1;
-  --shadow-s:0 2px 6px -2px rgba(22,51,44,.12);
-  --shadow-m:0 18px 38px -24px rgba(22,51,44,.38);
-  --shadow-l:0 34px 60px -30px rgba(22,51,44,.32);
+  --ink:#3B1523;          /* deep plum-maroon ink */
+  --ink2:#7A5261;
+  --brand:#A81D45;        /* kumkum — brand */
+  --brand-soft:#FAE0E7;
+  --saffron:#F2A20C;      /* marigold */
+  --peacock:#0C7D82;      /* peacock */
+  --indigo:#4A50B8;       /* cool third */
+  --line:#F2DCD3;
+  --shadow-s:0 2px 6px -2px rgba(59,21,35,.12);
+  --shadow-m:0 18px 38px -24px rgba(59,21,35,.38);
+  --shadow-l:0 34px 60px -30px rgba(59,21,35,.32);
   --r:22px;
   --r-s:12px;
   --wrap:1140px;
@@ -49,7 +49,7 @@ html[data-lang="en"] .display{font-family:'Instrument Serif',Georgia,serif; font
 .wrap{max-width:var(--wrap); margin:0 auto; padding:0 22px}
 .eyebrow{
   font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--teal); display:flex; align-items:center; gap:9px;
+  color:var(--brand); display:flex; align-items:center; gap:9px;
 }
 html[data-lang="kn"] .eyebrow{letter-spacing:.05em; text-transform:none; font-size:14px}
 .eyebrow::before{content:""; width:22px; height:2px; background:var(--saffron); border-radius:2px; flex:none}
@@ -57,7 +57,7 @@ html[data-lang="kn"] .eyebrow{letter-spacing:.05em; text-transform:none; font-si
 .sect-head{max-width:660px; margin-bottom:38px}
 .sect-head h2{font-size:clamp(32px,4.8vw,50px); margin:12px 0 10px}
 .sect-head p{color:var(--ink2); margin:0; font-size:17.5px}
-:focus-visible{outline:3px solid var(--teal); outline-offset:3px; border-radius:6px}
+:focus-visible{outline:3px solid var(--brand); outline-offset:3px; border-radius:6px}
 
 /* ── preview strip (delete before launch) ───────────────── */
 #preview-bar{
@@ -76,14 +76,14 @@ html[data-lang="kn"] .eyebrow{letter-spacing:.05em; text-transform:none; font-si
 /* ── header ─────────────────────────────────────────────── */
 header{
   position:sticky; top:0; z-index:60;
-  background:rgba(238,245,241,.84); backdrop-filter:blur(14px) saturate(1.4);
+  background:rgba(252,238,230,.87); backdrop-filter:blur(14px) saturate(1.4);
   border-bottom:1px solid var(--line);
 }
 .bar{display:flex; align-items:center; gap:20px; height:78px}
 .logo{display:flex; align-items:center; gap:11px; flex:none}
 .logo-badge{
   width:46px; height:46px; border-radius:14px; flex:none;
-  background:linear-gradient(150deg,var(--teal),#12888B 55%,var(--indigo));
+  background:linear-gradient(150deg,var(--brand),#C93A63 52%,var(--saffron));
   display:grid; place-items:center; box-shadow:var(--shadow-s);
 }
 .logo-badge svg{width:28px; height:28px}
@@ -95,7 +95,7 @@ html[data-lang="kn"] .logo-sub{letter-spacing:.04em; text-transform:none; font-s
 
 nav{margin-left:auto; display:flex; align-items:center; gap:4px}
 nav a{padding:9px 13px; border-radius:99px; font-size:15.5px; font-weight:500; color:var(--ink2); transition:.2s var(--ease)}
-nav a:hover{color:var(--teal); background:var(--teal-soft)}
+nav a:hover{color:var(--brand); background:var(--brand-soft)}
 
 .lang{display:flex; background:var(--paper); border:1px solid var(--line); border-radius:99px; padding:3px; margin-left:8px; flex:none}
 .lang button{
@@ -111,20 +111,41 @@ nav a:hover{color:var(--teal); background:var(--teal-soft)}
 .drone{position:absolute; inset:-6% 0 auto; height:118%; width:100%; pointer-events:none; z-index:0}
 .drone svg{width:100%; height:100%; mix-blend-mode:multiply; opacity:.72}
 .hero .wrap{position:relative; z-index:1}
+
+/* ambient floating chips */
+.floaters{position:absolute; inset:0; z-index:0; pointer-events:none; display:none}
+.flo{
+  position:absolute; width:54px; height:54px; border-radius:50%;
+  background:var(--paper); border:1px solid var(--line); box-shadow:var(--shadow-m);
+  display:grid; place-items:center; font-size:25px; line-height:1;
+  animation:bob 7.5s ease-in-out infinite;
+}
+.flo.gl{font-family:'Noto Serif Kannada',serif; font-size:23px; font-weight:700; color:var(--brand)}
+.flo.sm{width:42px; height:42px; font-size:19px}
+.flo.sm.gl{font-size:18px}
+@keyframes bob{
+  0%,100%{transform:translateY(0) rotate(-5deg)}
+  50%{transform:translateY(-17px) rotate(5deg)}
+}
+@media (min-width:1180px){ .floaters{display:block} }
+
+/* emoji-led section eyebrows */
+.eyebrow.emoji::before{display:none}
+.eyebrow .emo{font-size:17px; line-height:1; filter:saturate(1.05)}
 .hero-eyebrow{justify-content:center; margin-bottom:20px}
 .hero-eyebrow::before{display:none}
 .hero-eyebrow span{
   background:var(--paper); border:1px solid var(--line); box-shadow:var(--shadow-s);
-  padding:7px 16px; border-radius:99px; color:var(--teal); font-weight:600;
+  padding:7px 16px; border-radius:99px; color:var(--brand); font-weight:600;
 }
 .hero h1{font-size:clamp(38px,7.2vw,76px); margin:0 auto; max-width:15ch}
-.hero h1 em{font-style:normal; color:var(--teal); position:relative; white-space:nowrap}
+.hero h1 em{font-style:normal; color:var(--brand); position:relative; white-space:nowrap}
 .hero h1 em::after{
   content:""; position:absolute; left:-.04em; right:-.04em; bottom:.05em; height:.32em;
   background:var(--saffron); opacity:.34; border-radius:99px; z-index:-1;
 }
 .quote{max-width:610px; margin:22px auto 0; font-size:19px; color:var(--ink2); padding:0 30px; position:relative}
-.quote::before,.quote::after{content:"“"; font-family:'Instrument Serif',serif; font-size:46px; color:var(--kumkum); position:absolute; top:-4px; left:0; line-height:1; opacity:.6}
+.quote::before,.quote::after{content:"“"; font-family:'Instrument Serif',serif; font-size:46px; color:var(--peacock); position:absolute; top:-4px; left:0; line-height:1; opacity:.6}
 .quote::after{content:"”"; left:auto; right:0}
 .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:30px}
 .btn{
@@ -133,9 +154,9 @@ nav a:hover{color:var(--teal); background:var(--teal-soft)}
   transition:transform .22s var(--ease), box-shadow .22s var(--ease), background .2s, border-color .2s;
 }
 .btn-primary{background:var(--ink); color:#fff; box-shadow:var(--shadow-m)}
-.btn-primary:hover{transform:translateY(-2px); background:var(--teal)}
+.btn-primary:hover{transform:translateY(-2px); background:var(--brand)}
 .btn-ghost{background:var(--paper); border-color:var(--line); color:var(--ink); box-shadow:var(--shadow-s)}
-.btn-ghost:hover{transform:translateY(-2px); border-color:var(--teal); color:var(--teal)}
+.btn-ghost:hover{transform:translateY(-2px); border-color:var(--brand); color:var(--brand)}
 
 /* ── signature: the swara board ─────────────────────────── */
 .board{
@@ -162,13 +183,17 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 .rung .s{font-size:10.5px; font-weight:600; letter-spacing:.05em; color:var(--ink2); margin-top:7px; text-align:center; padding:0 3px}
 .rung:hover{transform:translateY(-5px); box-shadow:var(--shadow-l)}
 .rung.lit{filter:brightness(1.06); transform:translateY(-7px)}
+.rung{background:linear-gradient(180deg,#fff,#FDF0E6)}
+.rung.v{background:linear-gradient(180deg,#fff,var(--brand-soft)); border-color:#EFC9D4}
+.rung.v .g{color:var(--brand)}
+.rung .s{font-family:'JetBrains Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.02em}
 .board-foot{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:20px}
 .tiny{
   background:var(--hall); border:1px solid var(--line); border-radius:99px; padding:9px 17px;
   font-size:14px; font-weight:600; color:var(--ink); cursor:pointer; transition:.2s var(--ease);
 }
-.tiny:hover{border-color:var(--teal); color:var(--teal)}
-.tiny[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+.tiny:hover{border-color:var(--brand); color:var(--brand)}
+.tiny[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:#fff}
 .board-foot .hint{font-size:14.5px; color:var(--ink2); margin:0}
 
 /* ── notice board ticker ────────────────────────────────── */
@@ -185,7 +210,7 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 @keyframes slide{to{transform:translateX(-50%)}}
 .tick{display:flex; align-items:center; gap:10px; padding:15px 26px; font-size:15.5px; white-space:nowrap; color:var(--ink2)}
 .tick b{color:var(--ink); font-weight:600}
-.tick .dot{width:6px; height:6px; border-radius:50%; background:var(--kumkum); flex:none}
+.tick .dot{width:6px; height:6px; border-radius:50%; background:var(--peacock); flex:none}
 
 /* ── about + ledger ─────────────────────────────────────── */
 .about-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:start}
@@ -194,7 +219,7 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 .ledger{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:8px 26px; box-shadow:var(--shadow-m)}
 .ledger-row{display:flex; align-items:baseline; gap:14px; padding:19px 0; border-bottom:1px dashed var(--line)}
 .ledger-row:last-child{border-bottom:0}
-.ledger-n{font-size:38px; line-height:1; font-weight:700; color:var(--teal); font-family:'Noto Serif Kannada',serif; min-width:92px}
+.ledger-n{font-size:38px; line-height:1; font-weight:700; color:var(--brand); font-family:'Noto Serif Kannada',serif; min-width:92px}
 .ledger-k{font-size:15.5px; color:var(--ink2)}
 
 /* ── courses ────────────────────────────────────────────── */
@@ -203,8 +228,8 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
   background:var(--paper); border:1px solid var(--line); border-radius:99px; padding:9px 18px;
   font-size:14.5px; font-weight:500; color:var(--ink2); cursor:pointer; transition:.2s var(--ease);
 }
-.chip:hover{border-color:var(--teal); color:var(--teal)}
-.chip[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+.chip:hover{border-color:var(--brand); color:var(--brand)}
+.chip[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:#fff}
 .courses{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
 .course{
   background:var(--paper); border:1px solid var(--line); border-radius:var(--r); overflow:hidden;
@@ -214,27 +239,27 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 .course:hover{transform:translateY(-6px) rotate(-.4deg); box-shadow:var(--shadow-l)}
 .plate{aspect-ratio:4/2.9; padding:22px; display:flex; flex-direction:column; justify-content:space-between; position:relative}
 .plate::after{content:""; position:absolute; inset:0; opacity:.5; background:radial-gradient(circle at 80% 14%,rgba(255,255,255,.85),transparent 56%)}
-.plate-sw{font-family:'Noto Serif Kannada',serif; font-size:30px; font-weight:700; color:rgba(22,51,44,.34); position:relative; z-index:1; line-height:1}
+.plate-sw{font-family:'Noto Serif Kannada',serif; font-size:30px; font-weight:700; color:rgba(59,21,35,.34); position:relative; z-index:1; line-height:1}
 .plate-t{font-size:27px; margin:0; position:relative; z-index:1; max-width:13ch}
 .course-meta{padding:18px 22px 22px; display:flex; flex-direction:column; gap:9px; flex:1}
 .tagline{font-size:15px; color:var(--ink2); flex:1}
 .course-foot{display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:13.5px}
-.pill{background:var(--teal-soft); color:var(--teal); font-size:12.5px; font-weight:600; padding:4px 11px; border-radius:99px}
-.more{color:var(--teal); font-weight:600; font-size:14px}
+.pill{background:var(--brand-soft); color:var(--brand); font-size:12.5px; font-weight:600; padding:4px 11px; border-radius:99px}
+.more{color:var(--brand); font-weight:600; font-size:14px}
 
 /* ── the path (five stages) ─────────────────────────────── */
 .rail{position:relative; padding-left:38px; margin-top:6px}
-.rail::before{content:""; position:absolute; left:9px; top:10px; bottom:10px; width:2px; background:linear-gradient(var(--teal),var(--indigo),var(--kumkum),var(--saffron)); border-radius:2px; opacity:.42}
+.rail::before{content:""; position:absolute; left:9px; top:10px; bottom:10px; width:2px; background:linear-gradient(var(--brand),var(--indigo),var(--peacock),var(--saffron)); border-radius:2px; opacity:.42}
 .stop{position:relative; padding:0 0 34px}
 .stop::before{
   content:""; position:absolute; left:-38px; top:6px; width:20px; height:20px; border-radius:50%;
-  background:var(--paper); border:3px solid var(--teal);
+  background:var(--paper); border:3px solid var(--brand);
 }
 .stop:nth-child(2)::before{border-color:var(--indigo)}
-.stop:nth-child(3)::before{border-color:var(--kumkum)}
+.stop:nth-child(3)::before{border-color:var(--peacock)}
 .stop:nth-child(4)::before{border-color:var(--saffron)}
-.stop:nth-child(5)::before{border-color:var(--teal)}
-.stop-n{font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--teal)}
+.stop:nth-child(5)::before{border-color:var(--brand)}
+.stop-n{font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--brand)}
 .stop h3{margin:2px 0 5px; font-size:22px; font-weight:600}
 .stop p{margin:0; color:var(--ink2); font-size:16.5px; max-width:62ch}
 
@@ -245,7 +270,7 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 .person-top{display:flex; align-items:center; gap:16px}
 .avatar{width:66px; height:66px; border-radius:20px; flex:none; display:grid; place-items:center; font-size:27px; font-weight:700; color:#fff; font-family:'Noto Serif Kannada',serif}
 .person h3{margin:0; font-size:21px; font-weight:600}
-.person .role{font-size:14px; color:var(--teal); font-weight:600}
+.person .role{font-size:14px; color:var(--brand); font-weight:600}
 .person p{margin:15px 0 0; color:var(--ink2); font-size:16px}
 .crew{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
 .crew .person{padding:20px}
@@ -265,16 +290,16 @@ td{padding:16px 22px; border-bottom:1px solid var(--line); font-size:16px}
 tr:last-child td{border-bottom:0}
 tbody tr:hover td{background:var(--hall)}
 td.name{font-weight:600}
-td.fee{color:var(--teal); font-weight:700; white-space:nowrap}
+td.fee{color:var(--brand); font-weight:700; white-space:nowrap}
 .seats{font-size:12.5px; font-weight:600; padding:3px 10px; border-radius:99px; white-space:nowrap}
-.seats.open{background:#DFF1E6; color:#1D6B41}
-.seats.few{background:#FDEBD3; color:#9A5B00}
-.seats.full{background:#FADCE4; color:#9C2247}
+.seats.open{background:#D9EFE6; color:#0F6B45}
+.seats.few{background:#FDEAC9; color:#8A5200}
+.seats.full{background:#F6DCE2; color:#8E1A3B}
 
 /* ── voices ─────────────────────────────────────────────── */
 .voices{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
 .voice{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-s)}
-.voice-mark{font-family:'Instrument Serif',serif; font-size:54px; line-height:.6; color:var(--kumkum); opacity:.5}
+.voice-mark{font-family:'Instrument Serif',serif; font-size:54px; line-height:.6; color:var(--peacock); opacity:.5}
 .voice p{margin:10px 0 16px; font-size:16.5px}
 .voice .who{font-size:14px; color:var(--ink2); font-weight:600}
 
@@ -288,17 +313,17 @@ td.fee{color:var(--teal); font-weight:700; white-space:nowrap}
   background:var(--hall); font-family:inherit; font-size:16px; color:var(--ink); transition:.2s;
 }
 .field textarea{min-height:104px; resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--teal); box-shadow:0 0 0 4px var(--teal-soft); background:var(--paper)}
-.field input.bad,.field select.bad{border-color:var(--kumkum); box-shadow:0 0 0 4px #FADCE4}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--brand); box-shadow:0 0 0 4px var(--brand-soft); background:var(--paper)}
+.field input.bad,.field select.bad{border-color:var(--brand); box-shadow:0 0 0 4px var(--brand-soft)}
 .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
 .form-btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
 .form-note{font-size:14px; color:var(--ink2); margin:14px 0 0}
-.form-note.bad{color:var(--kumkum); font-weight:600}
-.form-note.good{color:var(--teal); font-weight:600}
+.form-note.bad{color:var(--brand); font-weight:600}
+.form-note.good{color:var(--brand); font-weight:600}
 .reach{display:flex; flex-direction:column; gap:13px; margin-top:22px}
 .reach a{display:flex; gap:13px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-s); padding:14px 16px; box-shadow:var(--shadow-s); transition:.2s var(--ease)}
-.reach a:hover{border-color:var(--teal); transform:translateX(3px)}
-.reach svg{width:20px; height:20px; stroke:var(--teal); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; flex:none}
+.reach a:hover{border-color:var(--brand); transform:translateX(3px)}
+.reach svg{width:20px; height:20px; stroke:var(--brand); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; flex:none}
 .reach .k{font-size:12.5px; color:var(--ink2); display:block; line-height:1.3}
 .reach .v{font-weight:600; font-size:15.5px}
 
@@ -307,17 +332,17 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 .foot{display:flex; align-items:center; justify-content:space-between; gap:22px; padding:30px 0; flex-wrap:wrap; font-size:14.5px; color:var(--ink2)}
 .social{display:flex; gap:9px}
 .social a{width:40px; height:40px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; transition:.22s var(--ease)}
-.social a:hover{background:var(--teal); border-color:var(--teal); transform:translateY(-3px)}
+.social a:hover{background:var(--brand); border-color:var(--brand); transform:translateY(-3px)}
 .social a:hover svg{fill:#fff}
 .social svg{width:17px; height:17px; fill:var(--ink2); transition:fill .22s}
 
 /* ── detail sheet ───────────────────────────────────────── */
 .sheet{position:fixed; inset:0; z-index:100; display:none; padding:26px}
 .sheet.open{display:grid; place-items:center}
-.veil{position:absolute; inset:0; background:rgba(22,51,44,.44); backdrop-filter:blur(4px)}
+.veil{position:absolute; inset:0; background:rgba(59,21,35,.44); backdrop-filter:blur(4px)}
 .sheet-card{
   position:relative; background:var(--paper); border-radius:28px; max-width:760px; width:100%;
-  max-height:88vh; overflow-y:auto; box-shadow:0 50px 90px -40px rgba(22,51,44,.6);
+  max-height:88vh; overflow-y:auto; box-shadow:0 50px 90px -40px rgba(59,21,35,.6);
   animation:pop .3s var(--ease);
 }
 @keyframes pop{from{opacity:0; transform:translateY(18px) scale(.98)}}
@@ -337,7 +362,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 .bring{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
 .bring span{font-size:13.5px; background:var(--hall); border:1px solid var(--line); padding:5px 12px; border-radius:99px}
 .close{position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--paper); cursor:pointer; font-size:19px; line-height:1; color:var(--ink); z-index:2}
-.close:hover{background:var(--teal); color:#fff; border-color:var(--teal)}
+.close:hover{background:var(--brand); color:#fff; border-color:var(--brand)}
 
 /* ── to top ─────────────────────────────────────────────── */
 #toTop{
@@ -347,7 +372,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   opacity:0; pointer-events:none; transform:translateY(10px); transition:.28s var(--ease);
 }
 #toTop.on{opacity:1; pointer-events:auto; transform:none}
-#toTop:hover{background:var(--teal)}
+#toTop:hover{background:var(--brand)}
 
 /* ── reveal ─────────────────────────────────────────────── */
 .rise{opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease)}
@@ -366,15 +391,21 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   .lang{margin:8px 0 0; justify-content:center}
   .bar{gap:12px}
   .sect{padding:70px 0 4px}
-  .rungs{height:150px}
+  .rungs{height:150px; gap:3px}
+  .rung{border-radius:11px 11px 7px 7px}
+  .rung .g{font-size:16px}
+  .rung .s{font-size:9px}
   .form-card{padding:24px}
 }
 @media (max-width:600px){
   .courses,.voices,.crew,.two{grid-template-columns:1fr}
   .notice-label{padding:13px 22px 13px 16px; font-size:13px}
   .board{padding:20px 16px 18px; border-radius:22px}
-  .rungs{gap:4px; height:132px}
+  .rungs{gap:2px; height:126px}
+  .rung{border-radius:8px 8px 5px 5px}
+  .rung .g{font-size:12.5px}
   .rung .s{display:none}
+  .board-top{gap:6px}
   .sheet{padding:0}
   .sheet-card{border-radius:0; max-height:100vh; height:100%}
   .tbl-wrap{overflow-x:auto}
@@ -384,6 +415,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   *{animation-duration:.001s !important; animation-iteration-count:1 !important; transition-duration:.001s !important}
   html{scroll-behavior:auto}
   .rise{opacity:1; transform:none}
+  .flo{animation:none}
 }
 </style>
 </head>
@@ -407,8 +439,8 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
           </g>
           <path d="M20 3.2c1 0 1.7.8 1.7 1.8s-.7 1.7-1.7 1.7-1.7-.7-1.7-1.7.7-1.8 1.7-1.8Z" fill="#fff"/>
           <path d="M20 22.6c4.6 0 8 3.7 8 8.3s-3.6 7.9-8 7.9-8-3.4-8-7.9 3.4-8.3 8-8.3Z" fill="#fff"/>
-          <ellipse cx="20" cy="31.4" rx="3.1" ry="3.1" fill="#0E6F72"/>
-          <path d="M13.6 27.4c1.2-2.2 3.3-3.6 5.6-3.9-2.4 1.3-4.2 2.9-5.6 3.9Z" fill="rgba(14,111,114,.28)"/>
+          <ellipse cx="20" cy="31.4" rx="3.1" ry="3.1" fill="#A81D45"/>
+          <path d="M13.6 27.4c1.2-2.2 3.3-3.6 5.6-3.9-2.4 1.3-4.2 2.9-5.6 3.9Z" fill="rgba(168,29,69,.28)"/>
         </svg>
       </span>
       <span>
@@ -444,13 +476,13 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
       <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMin slice">
         <defs>
           <radialGradient id="d1" cx=".5" cy="0" r=".8">
-            <stop offset="0" stop-color="#EFA038" stop-opacity=".5"/><stop offset="1" stop-color="#EFA038" stop-opacity="0"/>
+            <stop offset="0" stop-color="#F2A20C" stop-opacity=".5"/><stop offset="1" stop-color="#F2A20C" stop-opacity="0"/>
           </radialGradient>
           <radialGradient id="d2" cx=".5" cy="0" r=".8">
-            <stop offset="0" stop-color="#4C5BC7" stop-opacity=".38"/><stop offset="1" stop-color="#4C5BC7" stop-opacity="0"/>
+            <stop offset="0" stop-color="#4A50B8" stop-opacity=".38"/><stop offset="1" stop-color="#4A50B8" stop-opacity="0"/>
           </radialGradient>
           <radialGradient id="d3" cx=".5" cy="0" r=".8">
-            <stop offset="0" stop-color="#D2436B" stop-opacity=".34"/><stop offset="1" stop-color="#D2436B" stop-opacity="0"/>
+            <stop offset="0" stop-color="#0C7D82" stop-opacity=".34"/><stop offset="1" stop-color="#0C7D82" stop-opacity="0"/>
           </radialGradient>
         </defs>
         <g style="filter:blur(10px)">
@@ -458,10 +490,21 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
           <ellipse cx="300" cy="70" rx="300" ry="230" fill="url(#d2)"/>
           <ellipse cx="920" cy="60" rx="300" ry="230" fill="url(#d3)"/>
         </g>
-        <g stroke="#0E6F72" stroke-opacity=".13" stroke-width="1">
+        <g stroke="#A81D45" stroke-opacity=".12" stroke-width="1">
           <path d="M0 300h1200M0 344h1200M0 388h1200M0 432h1200"/>
         </g>
       </svg>
+    </div>
+
+    <div class="floaters" aria-hidden="true">
+      <span class="flo"     style="left:3%;   top:11%; animation-delay:-.4s">🪕</span>
+      <span class="flo gl"  style="left:9.5%; top:38%; animation-delay:-2.1s">ಸ</span>
+      <span class="flo sm"  style="left:4.5%; top:63%; animation-delay:-3.6s">🎵</span>
+      <span class="flo gl sm" style="left:13%; top:83%; animation-delay:-1.2s">ಪ</span>
+      <span class="flo"     style="right:3%;  top:14%; animation-delay:-1.7s">🪘</span>
+      <span class="flo gl"  style="right:9.5%;top:41%; animation-delay:-3.1s">ಗ</span>
+      <span class="flo sm"  style="right:4%;  top:66%; animation-delay:-.8s">🎻</span>
+      <span class="flo sm"  style="right:13%; top:85%; animation-delay:-2.6s">🎤</span>
     </div>
 
     <div class="wrap">
@@ -478,11 +521,12 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
       <div class="board">
         <div class="board-top">
           <span class="k" data-i18n="board.title"></span>
-          <span class="k" data-i18n="board.sub" style="color:var(--teal)"></span>
+          <span class="k" id="swaraName" style="color:var(--brand)"></span>
         </div>
         <div class="rungs" id="rungs" role="group" aria-label="Swara scale"></div>
         <div class="board-foot">
           <button class="tiny" type="button" id="btnAaro" data-i18n="board.aarohana"></button>
+          <button class="tiny" type="button" id="btnAll" data-i18n="board.all"></button>
           <button class="tiny" type="button" id="btnDrone" aria-pressed="false" data-i18n="board.drone"></button>
           <p class="hint" data-i18n="board.hint"></p>
         </div>
@@ -502,7 +546,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   <section class="sect wrap" id="about">
     <div class="about-grid">
       <div class="about-body rise">
-        <div class="eyebrow" data-i18n="about.eyebrow"></div>
+        <div class="eyebrow emoji"><span class="emo">🎼</span><span data-i18n="about.eyebrow"></span></div>
         <h2 class="display" style="font-size:clamp(32px,4.8vw,50px); margin:12px 0 16px" data-i18n="about.h"></h2>
         <p class="lead" data-i18n="about.lead"></p>
         <p data-i18n="about.p1"></p>
@@ -515,7 +559,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   <!-- COURSES -->
   <section class="sect wrap" id="courses">
     <div class="sect-head rise">
-      <div class="eyebrow" data-i18n="courses.eyebrow"></div>
+      <div class="eyebrow emoji"><span class="emo">🎧</span><span data-i18n="courses.eyebrow"></span></div>
       <h2 class="display" data-i18n="courses.h"></h2>
       <p data-i18n="courses.sub"></p>
     </div>
@@ -526,7 +570,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   <!-- PATH -->
   <section class="sect wrap" id="path">
     <div class="sect-head rise">
-      <div class="eyebrow" data-i18n="path.eyebrow"></div>
+      <div class="eyebrow emoji"><span class="emo">🪜</span><span data-i18n="path.eyebrow"></span></div>
       <h2 class="display" data-i18n="path.h"></h2>
       <p data-i18n="path.sub"></p>
     </div>
@@ -536,7 +580,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   <!-- TEACHERS -->
   <section class="sect wrap" id="teachers">
     <div class="sect-head rise">
-      <div class="eyebrow" data-i18n="team.eyebrow"></div>
+      <div class="eyebrow emoji"><span class="emo">🎓</span><span data-i18n="team.eyebrow"></span></div>
       <h2 class="display" data-i18n="team.h"></h2>
       <p data-i18n="team.sub"></p>
     </div>
@@ -547,7 +591,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   <!-- BATCHES -->
   <section class="sect wrap" id="batches">
     <div class="sect-head rise">
-      <div class="eyebrow" data-i18n="batches.eyebrow"></div>
+      <div class="eyebrow emoji"><span class="emo">🗓️</span><span data-i18n="batches.eyebrow"></span></div>
       <h2 class="display" data-i18n="batches.h"></h2>
       <p data-i18n="batches.sub"></p>
     </div>
@@ -565,7 +609,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   <!-- VOICES -->
   <section class="sect wrap" id="voices">
     <div class="sect-head rise">
-      <div class="eyebrow" data-i18n="voices.eyebrow"></div>
+      <div class="eyebrow emoji"><span class="emo">💬</span><span data-i18n="voices.eyebrow"></span></div>
       <h2 class="display" data-i18n="voices.h"></h2>
     </div>
     <div class="voices rise" id="voiceGrid"></div>
@@ -574,7 +618,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   <!-- ENROL -->
   <section class="sect wrap" id="enrol">
     <div class="sect-head rise">
-      <div class="eyebrow" data-i18n="enrol.eyebrow"></div>
+      <div class="eyebrow emoji"><span class="emo">✍️</span><span data-i18n="enrol.eyebrow"></span></div>
       <h2 class="display" data-i18n="enrol.h"></h2>
       <p data-i18n="enrol.sub"></p>
     </div>
@@ -602,7 +646,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
       </div>
 
       <div class="rise">
-        <div class="eyebrow" data-i18n="contact.eyebrow"></div>
+        <div class="eyebrow emoji"><span class="emo">📍</span><span data-i18n="contact.eyebrow"></span></div>
         <h3 class="display" style="font-size:30px; margin:12px 0 6px" data-i18n="contact.h"></h3>
         <p style="color:var(--ink2); margin:0" data-i18n="contact.sub"></p>
         <div class="reach" id="reach"></div>
@@ -662,11 +706,12 @@ const STR = {
   'cta.enrol':{kn:'ದಾಖಲಾತಿ ಆರಂಭಿಸಿ',en:'Start enrolment'},
   'cta.browse':{kn:'ತರಗತಿಗಳನ್ನು ನೋಡಿ',en:'Browse the courses'},
 
-  'board.title':{kn:'ಸಪ್ತ ಸ್ವರ',en:'The seven swaras'},
+  'board.title':{kn:'ಒಂದು ಅಷ್ಟಕದ ಹನ್ನೆರಡು ಸ್ವರಸ್ಥಾನ',en:'All twelve swarasthanas in one octave'},
   'board.sub':{kn:'ಒತ್ತಿ ನೋಡಿ',en:'tap to hear'},
+  'board.all':{kn:'ಹನ್ನೆರಡೂ ನುಡಿಸಿ',en:'Play all twelve'},
   'board.aarohana':{kn:'ಆರೋಹಣ ನುಡಿಸಿ',en:'Play the aarohana'},
   'board.drone':{kn:'ಶ್ರುತಿ',en:'Shruti drone'},
-  'board.hint':{kn:'ಇದೇ ಮೊದಲ ದಿನದ ಪಾಠ — ಬೇರೇನೂ ಅಲ್ಲ.',en:'This, more or less, is day one. Nothing else.'},
+  'board.hint':{kn:'ಅಗಲದ ಸ್ತಂಭಗಳು ಶುದ್ಧ ಸ್ವರ, ಕಿರಿದಾದವು ವಿಕೃತ ಸ್ವರ.',en:'The wide rungs are the natural swaras; the narrow ones are the altered positions.'},
   'notice.label':{kn:'ಸೂಚನಾ ಫಲಕ',en:'Notice board'},
 
   'about.eyebrow':{kn:'ನಮ್ಮ ಬಗ್ಗೆ',en:'About us'},
@@ -797,7 +842,7 @@ const CATS = [
 
 const COURSES = [
   {
-    cat:'vocal', sw:'ಸ', hue:['#FBE7C6','#F6C98A'],
+    cat:'vocal', sw:'ಸ', hue:['#FCE4C1','#F7C382'],
     t:{kn:'ಕರ್ನಾಟಕ ಶಾಸ್ತ್ರೀಯ ಗಾಯನ',en:'Carnatic vocal'},
     line:{kn:'ಸರಳೆ ವರಸೆಯಿಂದ ಕೃತಿಯವರೆಗೆ, ಪೂರ್ಣ ಹಾದಿ.',en:'Sarale varase to kriti — the whole road.'},
     about:{
@@ -814,7 +859,7 @@ const COURSES = [
     bring:{kn:['ಸ್ವರಲಿಪಿ ಪುಸ್ತಕ (ಶಾಲೆಯಿಂದ)','ನೀರಿನ ಬಾಟಲಿ'],en:['Notation book (given here)','A water bottle']}
   },
   {
-    cat:'vocal', sw:'ರಿ', hue:['#DDE2FA','#B6BFF2'],
+    cat:'vocal', sw:'ರಿ', hue:['#E0E2FB','#B7BCF1'],
     t:{kn:'ಹಿಂದೂಸ್ತಾನಿ ಗಾಯನ',en:'Hindustani vocal'},
     line:{kn:'ಖರಜ್ ಸಾಧನೆ, ಆಲಾಪ್, ಬಂದಿಶ್, ಲಯಕಾರಿ.',en:'Kharaj practice, alaap, bandish, layakari.'},
     about:{
@@ -831,7 +876,7 @@ const COURSES = [
     bring:{kn:['ಸ್ವರಲಿಪಿ ಪುಸ್ತಕ (ಶಾಲೆಯಿಂದ)','ತಂಬೂರಿ ಆ್ಯಪ್ ಇದ್ದರೆ ಒಳ್ಳೆಯದು'],en:['Notation book (given here)','A tanpura app on your phone helps']}
   },
   {
-    cat:'film', sw:'ಗ', hue:['#FAD8E2','#F2A9BF'],
+    cat:'film', sw:'ಗ', hue:['#FBD8E1','#F3A2BB'],
     t:{kn:'ಸುಗಮ ಮತ್ತು ಚಿತ್ರಗೀತೆ',en:'Light and film singing'},
     line:{kn:'ಭಾವಗೀತೆ, ಚಿತ್ರಗೀತೆ, ಟ್ರ್ಯಾಕ್‌ಗೆ ಹಾಡುವುದು.',en:'Bhavageete, film songs, singing to a track.'},
     about:{
@@ -848,7 +893,7 @@ const COURSES = [
     bring:{kn:['ನಿಮ್ಮ ಇಷ್ಟದ ಎರಡು ಹಾಡು','ಇಯರ್‌ಫೋನ್'],en:['Two songs you love','Your own earphones']}
   },
   {
-    cat:'film', sw:'ಮ', hue:['#D5EDEC','#A6D6D4'],
+    cat:'film', sw:'ಮ', hue:['#D2EBEB','#9FD3D2'],
     t:{kn:'ಸ್ಟುಡಿಯೋ ಮತ್ತು ಮೈಕ್ ಕೌಶಲ',en:'Studio and mic craft'},
     line:{kn:'ಆರು ವಾರಗಳ ಮಾಡ್ಯೂಲ್ — ರೆಕಾರ್ಡಿಂಗ್ ಕೋಣೆಯ ಪಾಠ.',en:'A six-week module on the recording room.'},
     about:{
@@ -865,7 +910,7 @@ const COURSES = [
     bring:{kn:['ಒಂದು ಸಿದ್ಧಪಡಿಸಿದ ಹಾಡು','ಇಯರ್‌ಫೋನ್'],en:['One song you have prepared','Your own earphones']}
   },
   {
-    cat:'instrument', sw:'ಪ', hue:['#FBE7C6','#EFC489'],
+    cat:'instrument', sw:'ಪ', hue:['#FCE4C1','#F0BE80'],
     t:{kn:'ಕೀಬೋರ್ಡ್ ಮತ್ತು ಹಾರ್ಮೋನಿಯಂ',en:'Keyboard and harmonium'},
     line:{kn:'ಎರಡೂ ಕೈ, ಎರಡೂ ಸ್ವರಲಿಪಿ, ಸಾಥ್ ನೀಡುವಷ್ಟು ಶಾಸ್ತ್ರ.',en:'Both hands, both notations, enough theory to accompany.'},
     about:{
@@ -882,7 +927,7 @@ const COURSES = [
     bring:{kn:['ಮನೆಯಲ್ಲಿ ಅಭ್ಯಾಸಕ್ಕೆ ಒಂದು ಕೀಬೋರ್ಡ್'],en:['A keyboard at home for practice']}
   },
   {
-    cat:'instrument', sw:'ದ', hue:['#DDE2FA','#BAC3F0'],
+    cat:'instrument', sw:'ದ', hue:['#E0E2FB','#BBC1EF'],
     t:{kn:'ತಬಲಾ ಮತ್ತು ಲಯ',en:'Tabla and rhythm'},
     line:{kn:'ಬೋಲ್, ಠೇಕಾ, ತಾಳ — ಜೊತೆಗೆ ಕೊನ್ನಕ್ಕೋಲ್.',en:'Bols, theka and taala — with konnakol alongside.'},
     about:{
@@ -899,7 +944,7 @@ const COURSES = [
     bring:{kn:['ಮನೆಯಲ್ಲಿ ಅಭ್ಯಾಸಕ್ಕೆ ಒಂದು ಜೋಡಿ ತಬಲಾ'],en:['A pair of tabla at home for practice']}
   },
   {
-    cat:'instrument', sw:'ನಿ', hue:['#FAD8E2','#EFB2C5'],
+    cat:'instrument', sw:'ನಿ', hue:['#FBD8E1','#F0ACC1'],
     t:{kn:'ಪಿಟೀಲು',en:'Violin'},
     line:{kn:'ಭಂಗಿ, ಬೆರಳಿಕೆ, ಗಮಕ, ಕೃತಿಗೆ ಸಾಥ್.',en:'Posture, fingering, gamaka, accompaniment.'},
     about:{
@@ -933,7 +978,7 @@ const COURSES = [
     bring:{kn:['ಸ್ವಂತ ಅಕೌಸ್ಟಿಕ್ ಗಿಟಾರ್','ಪ್ಲೆಕ್ಟ್ರಮ್'],en:['Your own acoustic guitar','A few plectrums']}
   },
   {
-    cat:'kids', sw:'ಗ', hue:['#FBE7C6','#F3D0A0'],
+    cat:'kids', sw:'ಗ', hue:['#FCE4C1','#F4CB98'],
     t:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ',en:'Kids’ Sangeetha'},
     line:{kn:'ಹಾಡು, ಚಪ್ಪಾಳೆ ಆಟ, ಸರಳ ಸ್ವರಾಭ್ಯಾಸ.',en:'Songs, clapping games, simple swara play.'},
     about:{
@@ -970,12 +1015,12 @@ const PATH = [
 ];
 
 const LEADS = [
-  {i:'ಶ್ರೀ', ci:'S', c:'#0E6F72',
+  {i:'ಶ್ರೀ', ci:'S', c:'#A81D45',
    n:{kn:'ವಿದ್ವಾನ್ ಶ್ರೀಕಂಠ ಜೋಶಿ',en:'Vidwan Shrikanta Joshi'},
    r:{kn:'ಸಂಸ್ಥಾಪಕ · ಪ್ರಧಾನ ಗುರು',en:'Founder · Principal teacher'},
    b:{kn:'ಇಪ್ಪತ್ತೆರಡು ವರ್ಷ ವೇದಿಕೆ ಮತ್ತು ಸ್ಟುಡಿಯೋ ನಡುವೆ. ಗುರುಕುಲ ಪದ್ಧತಿಯಲ್ಲಿ ಹನ್ನೆರಡು ವರ್ಷ ಕಲಿತು, ಆಮೇಲೆ ಮೂರು ಕನ್ನಡ ಚಿತ್ರ ಮತ್ತು ಹದಿನಾಲ್ಕು ನಾಟಕಗಳಿಗೆ ಸಂಗೀತ. ಶಾಸ್ತ್ರ ಬಿಗಿ, ಹಾಡುಗಾರಿಕೆ ಸಡಿಲ — ಇದೇ ಇವರ ಕಲಿಸುವ ಶೈಲಿ.',
       en:'Twenty-two years between the stage and the studio. Twelve years of gurukula-style study, then scores for three Kannada features and fourteen plays. His teaching holds the grammar tight and lets the singing stay loose.'}},
-  {i:'ಅ', ci:'A', c:'#D2436B',
+  {i:'ಅ', ci:'A', c:'#0C7D82',
    n:{kn:'ಅನನ್ಯಾ ರಾವ್',en:'Ananya Rao'},
    r:{kn:'ಕೀಬೋರ್ಡ್ · ದಾಖಲಾತಿ ಮತ್ತು ವೇಳಾಪಟ್ಟಿ',en:'Keyboard · Admissions and scheduling'},
    b:{kn:'ಬ್ಯಾಚ್, ಸಮಯ, ಶುಲ್ಕ, ವೇದಿಕೆ ಕಾರ್ಯಕ್ರಮ — ಎಲ್ಲ ಇವರ ಕೈಯಲ್ಲಿ. ದಾಖಲಾತಿಯ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ. ಜೊತೆಗೆ ಕೀಬೋರ್ಡ್ ಮತ್ತು ಹಾರ್ಮೋನಿಯಂ ತರಗತಿಗಳೂ ಇವರದೇ.',
@@ -983,13 +1028,13 @@ const LEADS = [
 ];
 
 const CREW = [
-  {i:'ಪ್ರ', ci:'P', c:'#4C5BC7', n:{kn:'ಪ್ರಶಾಂತ್ ಎಂ.',en:'Prashanth M.'}, r:{kn:'ತಬಲಾ ಮತ್ತು ಗಿಟಾರ್',en:'Tabla and guitar'},
+  {i:'ಪ್ರ', ci:'P', c:'#4A50B8', n:{kn:'ಪ್ರಶಾಂತ್ ಎಂ.',en:'Prashanth M.'}, r:{kn:'ತಬಲಾ ಮತ್ತು ಗಿಟಾರ್',en:'Tabla and guitar'},
    b:{kn:'ಲಯವನ್ನು ಬಾಯಲ್ಲಿ ಹೇಳಿಸಿ ಕಲಿಸುವ ಪದ್ಧತಿ ಇವರದು.',en:'Teaches rhythm by making you say it aloud first.'}},
-  {i:'ಭಾ', ci:'B', c:'#EFA038', n:{kn:'ಭಾಗ್ಯಾ ಎಸ್.',en:'Bhagya S.'}, r:{kn:'ಪಿಟೀಲು',en:'Violin'},
+  {i:'ಭಾ', ci:'B', c:'#F2A20C', n:{kn:'ಭಾಗ್ಯಾ ಎಸ್.',en:'Bhagya S.'}, r:{kn:'ಪಿಟೀಲು',en:'Violin'},
    b:{kn:'ಮೊದಲ ಎರಡು ತಿಂಗಳು ಭಂಗಿ ಮಾತ್ರ — ಬಿಡುವುದಿಲ್ಲ.',en:'Two months on posture alone, and she does not relent.'}},
-  {i:'ರೇ', ci:'R', c:'#0E6F72', n:{kn:'ರೇಷ್ಮಾ ಬಿ.',en:'Reshma B.'}, r:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ',en:'Kids’ Sangeetha'},
+  {i:'ರೇ', ci:'R', c:'#A81D45', n:{kn:'ರೇಷ್ಮಾ ಬಿ.',en:'Reshma B.'}, r:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ',en:'Kids’ Sangeetha'},
    b:{kn:'ಮಕ್ಕಳಿಗೆ ಪಾಠ ಮಾಡುವುದಿಲ್ಲ, ಆಟ ಆಡಿಸುತ್ತಾರೆ.',en:'Does not drill children — plays games with them instead.'}},
-  {i:'ಕಿ', ci:'K', c:'#D2436B', n:{kn:'ಕಿರಣ್ ಶೆಟ್ಟಿ',en:'Kiran Shetty'}, r:{kn:'ಮೃದಂಗ · ವೇದಿಕೆ ಪಕ್ಕವಾದ್ಯ',en:'Mridangam · Recital accompanist'},
+  {i:'ಕಿ', ci:'K', c:'#0C7D82', n:{kn:'ಕಿರಣ್ ಶೆಟ್ಟಿ',en:'Kiran Shetty'}, r:{kn:'ಮೃದಂಗ · ವೇದಿಕೆ ಪಕ್ಕವಾದ್ಯ',en:'Mridangam · Recital accompanist'},
    b:{kn:'ವರ್ಷದ ಎರಡೂ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ಸಾಥ್ ಇವರದೇ.',en:'Plays behind every student at both annual recitals.'}}
 ];
 
@@ -1038,15 +1083,22 @@ const SOCIAL = [
 ];
 
 const SWARAS = [
-  {g:'ಸ',  f:261.63, kn:'ಷಡ್ಜ',   en:'Shadja'},
-  {g:'ರಿ', f:294.33, kn:'ರಿಷಭ',   en:'Rishabha'},
-  {g:'ಗ',  f:327.04, kn:'ಗಾಂಧಾರ', en:'Gandhara'},
-  {g:'ಮ',  f:348.84, kn:'ಮಧ್ಯಮ',  en:'Madhyama'},
-  {g:'ಪ',  f:392.45, kn:'ಪಂಚಮ',   en:'Panchama'},
-  {g:'ದ',  f:436.05, kn:'ಧೈವತ',   en:'Dhaivata'},
-  {g:'ನಿ', f:490.56, kn:'ನಿಷಾದ',  en:'Nishada'},
-  {g:'ಸ̇', f:523.26, kn:'ತಾರ ಷಡ್ಜ',en:'Upper Shadja'}
+  {g:'ಸ',   r:'Sa',  f:261.63, kn:'ಷಡ್ಜ',                    en:'Shadja'},
+  {g:'ರಿ₁', r:'Ri₁', f:279.07, v:1, kn:'ಶುದ್ಧ ರಿಷಭ',      en:'Shuddha Rishabha'},
+  {g:'ರಿ₂', r:'Ri₂', f:294.33, kn:'ಚತುಶ್ಶ್ರುತಿ ರಿಷಭ', en:'Chatushruti Rishabha'},
+  {g:'ಗ₂',  r:'Ga₂', f:313.96, v:1, kn:'ಸಾಧಾರಣ ಗಾಂಧಾರ',     en:'Sadharana Gandhara'},
+  {g:'ಗ₃',  r:'Ga₃', f:327.04, kn:'ಅಂತರ ಗಾಂಧಾರ',            en:'Antara Gandhara'},
+  {g:'ಮ₁',  r:'Ma₁', f:348.84, kn:'ಶುದ್ಧ ಮಧ್ಯಮ',           en:'Shuddha Madhyama'},
+  {g:'ಮ₂',  r:'Ma₂', f:367.92, v:1, kn:'ಪ್ರತಿ ಮಧ್ಯಮ',      en:'Prati Madhyama'},
+  {g:'ಪ',   r:'Pa',  f:392.45, kn:'ಪಂಚಮ',                    en:'Panchama'},
+  {g:'ದ₁',  r:'Dha₁',f:418.61, v:1, kn:'ಶುದ್ಧ ಧೈವತ',      en:'Shuddha Dhaivata'},
+  {g:'ದ₂',  r:'Dha₂',f:436.05, kn:'ಚತುಶ್ಶ್ರುತಿ ಧೈವತ', en:'Chatushruti Dhaivata'},
+  {g:'ನಿ₂', r:'Ni₂', f:470.93, v:1, kn:'ಕೈಶಿಕಿ ನಿಷಾದ',   en:'Kaishiki Nishada'},
+  {g:'ನಿ₃', r:'Ni₃', f:490.56, kn:'ಕಾಕಲಿ ನಿಷಾದ',        en:'Kakali Nishada'},
+  {g:'ಸ̇',  r:'Sȧ', f:523.26, kn:'ತಾರ ಷಡ್ಜ',              en:'Upper Shadja'}
 ];
+/* the natural seven — Shankarabharanam — for the aarohana run */
+const SHUDDHA = [0,2,4,5,7,9,11,12];
 
 /* ═══════════════════════════════════════════════════════════
    ENGINE
@@ -1088,14 +1140,18 @@ function paintRungs(){
   SWARAS.forEach((s, i) => {
     const b = document.createElement('button');
     b.type = 'button';
-    b.className = 'rung';
-    b.style.height = (46 + i * 7.7) + '%';
-    b.style.background = `linear-gradient(180deg,#fff,${['#FBE7C6','#F7EBD6','#E7EEFB','#DDEDEC','#E4F0EF','#FBE2EA','#F9EAD5','#DCEDEC'][i]})`;
+    b.className = 'rung' + (s.v ? ' v' : '');
+    b.style.height = (40 + i * 4.6) + '%';
+    b.style.flexGrow = s.v ? '.62' : '1';
     b.setAttribute('aria-label', L(s));
-    b.innerHTML = `<span class="g">${s.g}</span><span class="s">${esc(L(s))}</span>`;
-    b.onclick = () => pluck(s.f, b);
+    b.innerHTML = `<span class="g">${s.g}</span><span class="s">${s.r}</span>`;
+    const say = () => { document.getElementById('swaraName').textContent = L(s); };
+    b.onclick = () => { pluck(s.f, b); say(); };
+    b.onmouseenter = say;
+    b.onfocus = say;
     box.appendChild(b);
   });
+  document.getElementById('swaraName').textContent = t('board.sub');
 }
 
 function paintChips(){
@@ -1217,7 +1273,7 @@ function openSheet(idx){
     <div style="background:linear-gradient(150deg,${c.hue[0]},${c.hue[1]});margin:-34px -34px 22px;padding:38px 34px 30px;border-radius:28px 28px 0 0">
       <span class="pill" style="background:rgba(255,255,255,.72);color:var(--ink)">${esc(L(cat))}</span>
       <h2 class="display" id="sheetTitle">${esc(L(c.t))}</h2>
-      <p style="margin:0;color:rgba(22,51,44,.72);font-size:18px">${esc(L(c.line))}</p>
+      <p style="margin:0;color:rgba(59,21,35,.72);font-size:18px">${esc(L(c.line))}</p>
     </div>`;
   document.getElementById('sheetBody').innerHTML = `
     <dl class="facts">
@@ -1262,10 +1318,15 @@ function pluck(freq, el){
   });
   if (el){ el.classList.add('lit'); setTimeout(() => el.classList.remove('lit'), 300); }
 }
-document.getElementById('btnAaro').onclick = () => {
+function runScale(idxs, gap){
   const rungs = document.querySelectorAll('.rung');
-  SWARAS.forEach((s, i) => setTimeout(() => pluck(s.f, rungs[i]), i * 230));
-};
+  idxs.forEach((si, step) => setTimeout(() => {
+    pluck(SWARAS[si].f, rungs[si]);
+    document.getElementById('swaraName').textContent = L(SWARAS[si]);
+  }, step * gap));
+}
+document.getElementById('btnAaro').onclick = () => runScale(SHUDDHA, 240);
+document.getElementById('btnAll').onclick  = () => runScale(SWARAS.map((_, i) => i), 175);
 document.getElementById('btnDrone').onclick = function(){
   const a = ctx();
   if (droneNodes){
