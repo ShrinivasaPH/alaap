@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alaap Sangeetha Shale · Music School, Bengaluru</title>
+<meta name="description" content="Alaap Sangeetha Shale — a music school in Bengaluru. Carnatic and Hindustani vocal, film singing, keyboard, tabla, violin and guitar. Small batches, two recitals a year.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Kannada:wght@300..700&family=Instrument+Serif:ital@0;1&family=Noto+Serif+Kannada:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── tokens ─────────────────────────────────────────────── */
+:root{
+  --hall:#EEF5F1;         /* pale sruti-green house light */
+  --paper:#FFFFFF;
+  --ink:#16332C;          /* deep pine ink */
+  --ink2:#54736A;
+  --teal:#0E6F72;         /* tanpura brass-and-teal — brand */
+  --teal-soft:#DCEDEC;
+  --saffron:#EFA038;      /* turmeric */
+  --kumkum:#D2436B;       /* rose-red */
+  --indigo:#4C5BC7;       /* cool third */
+  --line:#DAE8E1;
+  --shadow-s:0 2px 6px -2px rgba(22,51,44,.12);
+  --shadow-m:0 18px 38px -24px rgba(22,51,44,.38);
+  --shadow-l:0 34px 60px -30px rgba(22,51,44,.32);
+  --r:22px;
+  --r-s:12px;
+  --wrap:1140px;
+  --ease:cubic-bezier(.22,.7,.28,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--hall); color:var(--ink);
+  font-family:'Anek Kannada',system-ui,sans-serif; font-weight:400;
+  font-size:17px; line-height:1.65; overflow-x:hidden;
+}
+html[data-lang="kn"] body{line-height:1.82}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+button{font-family:inherit}
+
+/* display face swaps with language */
+.display{font-weight:700; letter-spacing:-.01em; line-height:1.14; margin:0}
+html[data-lang="kn"] .display{font-family:'Noto Serif Kannada',serif; font-weight:700; line-height:1.4; letter-spacing:0}
+html[data-lang="en"] .display{font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:-.005em}
+
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 22px}
+.eyebrow{
+  font-size:12.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--teal); display:flex; align-items:center; gap:9px;
+}
+html[data-lang="kn"] .eyebrow{letter-spacing:.05em; text-transform:none; font-size:14px}
+.eyebrow::before{content:""; width:22px; height:2px; background:var(--saffron); border-radius:2px; flex:none}
+.sect{padding:94px 0 8px}
+.sect-head{max-width:660px; margin-bottom:38px}
+.sect-head h2{font-size:clamp(32px,4.8vw,50px); margin:12px 0 10px}
+.sect-head p{color:var(--ink2); margin:0; font-size:17.5px}
+:focus-visible{outline:3px solid var(--teal); outline-offset:3px; border-radius:6px}
+
+/* ── preview strip (delete before launch) ───────────────── */
+#preview-bar{
+  background:var(--ink); color:#E6F2EC; font-size:13.5px;
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  padding:9px 46px 9px 22px; position:relative;
+}
+#preview-bar b{color:var(--saffron); font-weight:600}
+#preview-bar button{
+  position:absolute; right:12px; top:50%; transform:translateY(-50%);
+  background:transparent; border:1px solid rgba(255,255,255,.3); color:inherit;
+  width:26px; height:26px; border-radius:50%; cursor:pointer; line-height:1;
+}
+#preview-bar button:hover{background:rgba(255,255,255,.14)}
+
+/* ── header ─────────────────────────────────────────────── */
+header{
+  position:sticky; top:0; z-index:60;
+  background:rgba(238,245,241,.84); backdrop-filter:blur(14px) saturate(1.4);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex; align-items:center; gap:20px; height:78px}
+.logo{display:flex; align-items:center; gap:11px; flex:none}
+.logo-badge{
+  width:46px; height:46px; border-radius:14px; flex:none;
+  background:linear-gradient(150deg,var(--teal),#12888B 55%,var(--indigo));
+  display:grid; place-items:center; box-shadow:var(--shadow-s);
+}
+.logo-badge svg{width:28px; height:28px}
+.logo-name{font-size:23px; line-height:1.1; margin:0; display:block}
+html[data-lang="kn"] .logo-name{font-family:'Noto Serif Kannada',serif; font-weight:800; font-size:21px}
+html[data-lang="en"] .logo-name{font-family:'Instrument Serif',serif; font-weight:400; letter-spacing:0}
+.logo-sub{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink2); font-weight:600; display:block}
+html[data-lang="kn"] .logo-sub{letter-spacing:.04em; text-transform:none; font-size:12px}
+
+nav{margin-left:auto; display:flex; align-items:center; gap:4px}
+nav a{padding:9px 13px; border-radius:99px; font-size:15.5px; font-weight:500; color:var(--ink2); transition:.2s var(--ease)}
+nav a:hover{color:var(--teal); background:var(--teal-soft)}
+
+.lang{display:flex; background:var(--paper); border:1px solid var(--line); border-radius:99px; padding:3px; margin-left:8px; flex:none}
+.lang button{
+  border:0; background:transparent; cursor:pointer; padding:6px 13px; border-radius:99px;
+  font-size:14px; font-weight:600; color:var(--ink2); transition:.2s var(--ease);
+}
+.lang button[aria-pressed="true"]{background:var(--ink); color:#fff}
+.burger{display:none; margin-left:auto; background:var(--paper); border:1px solid var(--line); border-radius:12px; width:44px; height:44px; cursor:pointer}
+.burger span{display:block; width:18px; height:2px; background:var(--ink); margin:3.5px auto; border-radius:2px}
+
+/* ── hero ───────────────────────────────────────────────── */
+.hero{position:relative; overflow:hidden; padding:70px 0 40px; text-align:center}
+.drone{position:absolute; inset:-6% 0 auto; height:118%; width:100%; pointer-events:none; z-index:0}
+.drone svg{width:100%; height:100%; mix-blend-mode:multiply; opacity:.72}
+.hero .wrap{position:relative; z-index:1}
+.hero-eyebrow{justify-content:center; margin-bottom:20px}
+.hero-eyebrow::before{display:none}
+.hero-eyebrow span{
+  background:var(--paper); border:1px solid var(--line); box-shadow:var(--shadow-s);
+  padding:7px 16px; border-radius:99px; color:var(--teal); font-weight:600;
+}
+.hero h1{font-size:clamp(38px,7.2vw,76px); margin:0 auto; max-width:15ch}
+.hero h1 em{font-style:normal; color:var(--teal); position:relative; white-space:nowrap}
+.hero h1 em::after{
+  content:""; position:absolute; left:-.04em; right:-.04em; bottom:.05em; height:.32em;
+  background:var(--saffron); opacity:.34; border-radius:99px; z-index:-1;
+}
+.quote{max-width:610px; margin:22px auto 0; font-size:19px; color:var(--ink2); padding:0 30px; position:relative}
+.quote::before,.quote::after{content:"“"; font-family:'Instrument Serif',serif; font-size:46px; color:var(--kumkum); position:absolute; top:-4px; left:0; line-height:1; opacity:.6}
+.quote::after{content:"”"; left:auto; right:0}
+.cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:30px}
+.btn{
+  display:inline-flex; align-items:center; gap:9px; padding:14px 26px; border-radius:99px;
+  font-weight:600; font-size:16px; border:1px solid transparent; cursor:pointer;
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease), background .2s, border-color .2s;
+}
+.btn-primary{background:var(--ink); color:#fff; box-shadow:var(--shadow-m)}
+.btn-primary:hover{transform:translateY(-2px); background:var(--teal)}
+.btn-ghost{background:var(--paper); border-color:var(--line); color:var(--ink); box-shadow:var(--shadow-s)}
+.btn-ghost:hover{transform:translateY(-2px); border-color:var(--teal); color:var(--teal)}
+
+/* ── signature: the swara board ─────────────────────────── */
+.board{
+  background:var(--paper); border:1px solid var(--line); border-radius:28px;
+  box-shadow:var(--shadow-m); padding:26px 26px 22px; margin:46px auto 0; max-width:860px;
+}
+.board-top{display:flex; align-items:baseline; justify-content:space-between; gap:14px; margin-bottom:18px; flex-wrap:wrap}
+.board-top .k{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2)}
+html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; font-size:15px}
+.rungs{display:flex; align-items:flex-end; gap:clamp(5px,1vw,11px); height:186px}
+.rung{
+  flex:1; border:1px solid var(--line); border-radius:16px 16px 10px 10px; cursor:pointer;
+  padding:0 0 12px; display:flex; flex-direction:column; justify-content:flex-end; align-items:center;
+  background:var(--paper); box-shadow:var(--shadow-s); transform-origin:bottom;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .3s;
+  animation:grow .65s var(--ease) backwards;
+}
+.rung:nth-child(1){animation-delay:.04s} .rung:nth-child(2){animation-delay:.11s}
+.rung:nth-child(3){animation-delay:.18s} .rung:nth-child(4){animation-delay:.25s}
+.rung:nth-child(5){animation-delay:.32s} .rung:nth-child(6){animation-delay:.39s}
+.rung:nth-child(7){animation-delay:.46s} .rung:nth-child(8){animation-delay:.53s}
+@keyframes grow{from{transform:scaleY(.1); opacity:0}}
+.rung .g{font-family:'Noto Serif Kannada',serif; font-weight:700; font-size:clamp(19px,3vw,27px); line-height:1; color:var(--ink)}
+.rung .s{font-size:10.5px; font-weight:600; letter-spacing:.05em; color:var(--ink2); margin-top:7px; text-align:center; padding:0 3px}
+.rung:hover{transform:translateY(-5px); box-shadow:var(--shadow-l)}
+.rung.lit{filter:brightness(1.06); transform:translateY(-7px)}
+.board-foot{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:20px}
+.tiny{
+  background:var(--hall); border:1px solid var(--line); border-radius:99px; padding:9px 17px;
+  font-size:14px; font-weight:600; color:var(--ink); cursor:pointer; transition:.2s var(--ease);
+}
+.tiny:hover{border-color:var(--teal); color:var(--teal)}
+.tiny[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+.board-foot .hint{font-size:14.5px; color:var(--ink2); margin:0}
+
+/* ── notice board ticker ────────────────────────────────── */
+.notice{margin-top:52px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--paper)}
+.notice-in{display:flex; align-items:center; overflow:hidden}
+.notice-label{
+  flex:none; padding:15px 30px 15px 20px; background:var(--saffron); color:#4A2E00;
+  font-weight:700; font-size:14px; letter-spacing:.05em;
+  clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%);
+}
+.marquee{overflow:hidden; flex:1; mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.marquee-track{display:flex; width:max-content; animation:slide 36s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.tick{display:flex; align-items:center; gap:10px; padding:15px 26px; font-size:15.5px; white-space:nowrap; color:var(--ink2)}
+.tick b{color:var(--ink); font-weight:600}
+.tick .dot{width:6px; height:6px; border-radius:50%; background:var(--kumkum); flex:none}
+
+/* ── about + ledger ─────────────────────────────────────── */
+.about-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:start}
+.about-body p{color:var(--ink2); font-size:18px}
+.about-body p.lead{color:var(--ink); font-size:21px; font-weight:500}
+.ledger{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:8px 26px; box-shadow:var(--shadow-m)}
+.ledger-row{display:flex; align-items:baseline; gap:14px; padding:19px 0; border-bottom:1px dashed var(--line)}
+.ledger-row:last-child{border-bottom:0}
+.ledger-n{font-size:38px; line-height:1; font-weight:700; color:var(--teal); font-family:'Noto Serif Kannada',serif; min-width:92px}
+.ledger-k{font-size:15.5px; color:var(--ink2)}
+
+/* ── courses ────────────────────────────────────────────── */
+.chips{display:flex; gap:9px; flex-wrap:wrap; margin-bottom:30px}
+.chip{
+  background:var(--paper); border:1px solid var(--line); border-radius:99px; padding:9px 18px;
+  font-size:14.5px; font-weight:500; color:var(--ink2); cursor:pointer; transition:.2s var(--ease);
+}
+.chip:hover{border-color:var(--teal); color:var(--teal)}
+.chip[aria-pressed="true"]{background:var(--teal); border-color:var(--teal); color:#fff}
+.courses{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+.course{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--r); overflow:hidden;
+  cursor:pointer; text-align:left; padding:0; box-shadow:var(--shadow-s);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease); display:flex; flex-direction:column;
+}
+.course:hover{transform:translateY(-6px) rotate(-.4deg); box-shadow:var(--shadow-l)}
+.plate{aspect-ratio:4/2.9; padding:22px; display:flex; flex-direction:column; justify-content:space-between; position:relative}
+.plate::after{content:""; position:absolute; inset:0; opacity:.5; background:radial-gradient(circle at 80% 14%,rgba(255,255,255,.85),transparent 56%)}
+.plate-sw{font-family:'Noto Serif Kannada',serif; font-size:30px; font-weight:700; color:rgba(22,51,44,.34); position:relative; z-index:1; line-height:1}
+.plate-t{font-size:27px; margin:0; position:relative; z-index:1; max-width:13ch}
+.course-meta{padding:18px 22px 22px; display:flex; flex-direction:column; gap:9px; flex:1}
+.tagline{font-size:15px; color:var(--ink2); flex:1}
+.course-foot{display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:13.5px}
+.pill{background:var(--teal-soft); color:var(--teal); font-size:12.5px; font-weight:600; padding:4px 11px; border-radius:99px}
+.more{color:var(--teal); font-weight:600; font-size:14px}
+
+/* ── the path (five stages) ─────────────────────────────── */
+.rail{position:relative; padding-left:38px; margin-top:6px}
+.rail::before{content:""; position:absolute; left:9px; top:10px; bottom:10px; width:2px; background:linear-gradient(var(--teal),var(--indigo),var(--kumkum),var(--saffron)); border-radius:2px; opacity:.42}
+.stop{position:relative; padding:0 0 34px}
+.stop::before{
+  content:""; position:absolute; left:-38px; top:6px; width:20px; height:20px; border-radius:50%;
+  background:var(--paper); border:3px solid var(--teal);
+}
+.stop:nth-child(2)::before{border-color:var(--indigo)}
+.stop:nth-child(3)::before{border-color:var(--kumkum)}
+.stop:nth-child(4)::before{border-color:var(--saffron)}
+.stop:nth-child(5)::before{border-color:var(--teal)}
+.stop-n{font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--teal)}
+.stop h3{margin:2px 0 5px; font-size:22px; font-weight:600}
+.stop p{margin:0; color:var(--ink2); font-size:16.5px; max-width:62ch}
+
+/* ── teachers ───────────────────────────────────────────── */
+.lead-pair{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px}
+.person{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-s); transition:.28s var(--ease)}
+.person:hover{box-shadow:var(--shadow-m); transform:translateY(-4px)}
+.person-top{display:flex; align-items:center; gap:16px}
+.avatar{width:66px; height:66px; border-radius:20px; flex:none; display:grid; place-items:center; font-size:27px; font-weight:700; color:#fff; font-family:'Noto Serif Kannada',serif}
+.person h3{margin:0; font-size:21px; font-weight:600}
+.person .role{font-size:14px; color:var(--teal); font-weight:600}
+.person p{margin:15px 0 0; color:var(--ink2); font-size:16px}
+.crew{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+.crew .person{padding:20px}
+.crew .avatar{width:50px; height:50px; border-radius:16px; font-size:21px}
+.crew h3{font-size:18px}
+.crew p{font-size:15px; margin-top:12px}
+
+/* ── batches table ──────────────────────────────────────── */
+.tbl-wrap{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow-m); overflow:hidden}
+table{width:100%; border-collapse:collapse}
+th{
+  text-align:left; font-size:12.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink2); padding:16px 22px; background:var(--hall); border-bottom:1px solid var(--line);
+}
+html[data-lang="kn"] th{letter-spacing:.03em; text-transform:none; font-size:14.5px}
+td{padding:16px 22px; border-bottom:1px solid var(--line); font-size:16px}
+tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--hall)}
+td.name{font-weight:600}
+td.fee{color:var(--teal); font-weight:700; white-space:nowrap}
+.seats{font-size:12.5px; font-weight:600; padding:3px 10px; border-radius:99px; white-space:nowrap}
+.seats.open{background:#DFF1E6; color:#1D6B41}
+.seats.few{background:#FDEBD3; color:#9A5B00}
+.seats.full{background:#FADCE4; color:#9C2247}
+
+/* ── voices ─────────────────────────────────────────────── */
+.voices{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+.voice{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-s)}
+.voice-mark{font-family:'Instrument Serif',serif; font-size:54px; line-height:.6; color:var(--kumkum); opacity:.5}
+.voice p{margin:10px 0 16px; font-size:16.5px}
+.voice .who{font-size:14px; color:var(--ink2); font-weight:600}
+
+/* ── enrol + contact ────────────────────────────────────── */
+.enrol-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:start}
+.form-card{background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:32px; box-shadow:var(--shadow-m)}
+.field{margin-bottom:16px}
+.field label{display:block; font-size:14px; font-weight:600; margin-bottom:6px}
+.field input,.field select,.field textarea{
+  width:100%; padding:13px 15px; border-radius:var(--r-s); border:1px solid var(--line);
+  background:var(--hall); font-family:inherit; font-size:16px; color:var(--ink); transition:.2s;
+}
+.field textarea{min-height:104px; resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--teal); box-shadow:0 0 0 4px var(--teal-soft); background:var(--paper)}
+.field input.bad,.field select.bad{border-color:var(--kumkum); box-shadow:0 0 0 4px #FADCE4}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.form-btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+.form-note{font-size:14px; color:var(--ink2); margin:14px 0 0}
+.form-note.bad{color:var(--kumkum); font-weight:600}
+.form-note.good{color:var(--teal); font-weight:600}
+.reach{display:flex; flex-direction:column; gap:13px; margin-top:22px}
+.reach a{display:flex; gap:13px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-s); padding:14px 16px; box-shadow:var(--shadow-s); transition:.2s var(--ease)}
+.reach a:hover{border-color:var(--teal); transform:translateX(3px)}
+.reach svg{width:20px; height:20px; stroke:var(--teal); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; flex:none}
+.reach .k{font-size:12.5px; color:var(--ink2); display:block; line-height:1.3}
+.reach .v{font-weight:600; font-size:15.5px}
+
+/* ── footer ─────────────────────────────────────────────── */
+footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper)}
+.foot{display:flex; align-items:center; justify-content:space-between; gap:22px; padding:30px 0; flex-wrap:wrap; font-size:14.5px; color:var(--ink2)}
+.social{display:flex; gap:9px}
+.social a{width:40px; height:40px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; transition:.22s var(--ease)}
+.social a:hover{background:var(--teal); border-color:var(--teal); transform:translateY(-3px)}
+.social a:hover svg{fill:#fff}
+.social svg{width:17px; height:17px; fill:var(--ink2); transition:fill .22s}
+
+/* ── detail sheet ───────────────────────────────────────── */
+.sheet{position:fixed; inset:0; z-index:100; display:none; padding:26px}
+.sheet.open{display:grid; place-items:center}
+.veil{position:absolute; inset:0; background:rgba(22,51,44,.44); backdrop-filter:blur(4px)}
+.sheet-card{
+  position:relative; background:var(--paper); border-radius:28px; max-width:760px; width:100%;
+  max-height:88vh; overflow-y:auto; box-shadow:0 50px 90px -40px rgba(22,51,44,.6);
+  animation:pop .3s var(--ease);
+}
+@keyframes pop{from{opacity:0; transform:translateY(18px) scale(.98)}}
+.sheet-hero{padding:34px 34px 26px; position:relative}
+.sheet-hero h2{font-size:clamp(30px,4.4vw,44px); margin:8px 0 6px}
+.sheet-body{padding:28px 34px 34px}
+.facts{display:grid; grid-template-columns:repeat(3,1fr); gap:2px 20px; margin:0 0 24px; padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.facts div{padding:8px 0}
+.facts dt{font-size:12.5px; color:var(--ink2); letter-spacing:.04em}
+.facts dd{margin:2px 0 0; font-weight:600; font-size:16.5px}
+.syl{list-style:none; padding:0; margin:0 0 24px}
+.syl li{position:relative; padding:0 0 10px 28px; color:var(--ink2); font-size:16.5px}
+.syl li::before{
+  content:""; position:absolute; left:0; top:.55em; width:9px; height:9px; border-radius:50%;
+  background:var(--saffron);
+}
+.bring{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+.bring span{font-size:13.5px; background:var(--hall); border:1px solid var(--line); padding:5px 12px; border-radius:99px}
+.close{position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--paper); cursor:pointer; font-size:19px; line-height:1; color:var(--ink); z-index:2}
+.close:hover{background:var(--teal); color:#fff; border-color:var(--teal)}
+
+/* ── to top ─────────────────────────────────────────────── */
+#toTop{
+  position:fixed; right:20px; bottom:20px; width:48px; height:48px; border-radius:50%;
+  background:var(--ink); color:#fff; border:0; cursor:pointer; z-index:80;
+  box-shadow:var(--shadow-m); display:grid; place-items:center; font-size:19px;
+  opacity:0; pointer-events:none; transform:translateY(10px); transition:.28s var(--ease);
+}
+#toTop.on{opacity:1; pointer-events:auto; transform:none}
+#toTop:hover{background:var(--teal)}
+
+/* ── reveal ─────────────────────────────────────────────── */
+.rise{opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease)}
+.rise.in{opacity:1; transform:none}
+
+/* ── responsive ─────────────────────────────────────────── */
+@media (max-width:900px){
+  .about-grid,.enrol-grid,.lead-pair{grid-template-columns:1fr; gap:30px}
+  .courses,.voices{grid-template-columns:repeat(2,1fr)}
+  .crew{grid-template-columns:repeat(2,1fr)}
+  .facts{grid-template-columns:1fr 1fr}
+  nav{position:fixed; inset:78px 0 auto; background:var(--paper); flex-direction:column; align-items:stretch; padding:14px; gap:2px; border-bottom:1px solid var(--line); box-shadow:var(--shadow-m); display:none; margin:0}
+  nav.open{display:flex}
+  nav a{padding:13px 16px; font-size:17px}
+  .burger{display:block}
+  .lang{margin:8px 0 0; justify-content:center}
+  .bar{gap:12px}
+  .sect{padding:70px 0 4px}
+  .rungs{height:150px}
+  .form-card{padding:24px}
+}
+@media (max-width:600px){
+  .courses,.voices,.crew,.two{grid-template-columns:1fr}
+  .notice-label{padding:13px 22px 13px 16px; font-size:13px}
+  .board{padding:20px 16px 18px; border-radius:22px}
+  .rungs{gap:4px; height:132px}
+  .rung .s{display:none}
+  .sheet{padding:0}
+  .sheet-card{border-radius:0; max-height:100vh; height:100%}
+  .tbl-wrap{overflow-x:auto}
+  table{min-width:620px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important; animation-iteration-count:1 !important; transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+  .rise{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- preview notice — delete this whole block before launch -->
+<div id="preview-bar">
+  <span data-i18n="preview"></span>
+  <button type="button" aria-label="Close" onclick="this.parentNode.remove()">×</button>
+</div>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Alaap Sangeetha Shale">
+      <span class="logo-badge">
+        <!-- tanpura -->
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <g fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round">
+            <path d="M17.2 6.5v18M20 5.6v18.9M22.8 6.5v18"/>
+            <path d="M15.6 8.2h-2M15.6 11h-2M24.4 8.2h2M24.4 11h2"/>
+          </g>
+          <path d="M20 3.2c1 0 1.7.8 1.7 1.8s-.7 1.7-1.7 1.7-1.7-.7-1.7-1.7.7-1.8 1.7-1.8Z" fill="#fff"/>
+          <path d="M20 22.6c4.6 0 8 3.7 8 8.3s-3.6 7.9-8 7.9-8-3.4-8-7.9 3.4-8.3 8-8.3Z" fill="#fff"/>
+          <ellipse cx="20" cy="31.4" rx="3.1" ry="3.1" fill="#0E6F72"/>
+          <path d="M13.6 27.4c1.2-2.2 3.3-3.6 5.6-3.9-2.4 1.3-4.2 2.9-5.6 3.9Z" fill="rgba(14,111,114,.28)"/>
+        </svg>
+      </span>
+      <span>
+        <span class="logo-name display" data-i18n="brand"></span>
+        <span class="logo-sub" data-i18n="brandSub"></span>
+      </span>
+    </a>
+
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav">
+      <a href="#about" data-i18n="nav.about"></a>
+      <a href="#courses" data-i18n="nav.courses"></a>
+      <a href="#path" data-i18n="nav.path"></a>
+      <a href="#teachers" data-i18n="nav.teachers"></a>
+      <a href="#batches" data-i18n="nav.batches"></a>
+      <a href="#enrol" data-i18n="nav.enrol"></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang-btn="kn" aria-pressed="false">ಕನ್ನಡ</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="drone" aria-hidden="true">
+      <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMin slice">
+        <defs>
+          <radialGradient id="d1" cx=".5" cy="0" r=".8">
+            <stop offset="0" stop-color="#EFA038" stop-opacity=".5"/><stop offset="1" stop-color="#EFA038" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="d2" cx=".5" cy="0" r=".8">
+            <stop offset="0" stop-color="#4C5BC7" stop-opacity=".38"/><stop offset="1" stop-color="#4C5BC7" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="d3" cx=".5" cy="0" r=".8">
+            <stop offset="0" stop-color="#D2436B" stop-opacity=".34"/><stop offset="1" stop-color="#D2436B" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g style="filter:blur(10px)">
+          <ellipse cx="600" cy="40" rx="360" ry="250" fill="url(#d1)"/>
+          <ellipse cx="300" cy="70" rx="300" ry="230" fill="url(#d2)"/>
+          <ellipse cx="920" cy="60" rx="300" ry="230" fill="url(#d3)"/>
+        </g>
+        <g stroke="#0E6F72" stroke-opacity=".13" stroke-width="1">
+          <path d="M0 300h1200M0 344h1200M0 388h1200M0 432h1200"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <div class="eyebrow hero-eyebrow"><span data-i18n="hero.badge"></span></div>
+      <h1 class="display" data-i18n-html="hero.title"></h1>
+      <p class="quote" data-i18n="hero.quote"></p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#enrol"><span data-i18n="cta.enrol"></span> →</a>
+        <a class="btn btn-ghost" href="#courses" data-i18n="cta.browse"></a>
+      </div>
+
+      <!-- signature: the swara board -->
+      <div class="board">
+        <div class="board-top">
+          <span class="k" data-i18n="board.title"></span>
+          <span class="k" data-i18n="board.sub" style="color:var(--teal)"></span>
+        </div>
+        <div class="rungs" id="rungs" role="group" aria-label="Swara scale"></div>
+        <div class="board-foot">
+          <button class="tiny" type="button" id="btnAaro" data-i18n="board.aarohana"></button>
+          <button class="tiny" type="button" id="btnDrone" aria-pressed="false" data-i18n="board.drone"></button>
+          <p class="hint" data-i18n="board.hint"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- notice board -->
+    <div class="notice">
+      <div class="wrap notice-in">
+        <div class="notice-label"><span data-i18n="notice.label"></span></div>
+        <div class="marquee"><div class="marquee-track" id="ticker"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sect wrap" id="about">
+    <div class="about-grid">
+      <div class="about-body rise">
+        <div class="eyebrow" data-i18n="about.eyebrow"></div>
+        <h2 class="display" style="font-size:clamp(32px,4.8vw,50px); margin:12px 0 16px" data-i18n="about.h"></h2>
+        <p class="lead" data-i18n="about.lead"></p>
+        <p data-i18n="about.p1"></p>
+        <p data-i18n="about.p2"></p>
+      </div>
+      <div class="ledger rise" id="ledger"></div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section class="sect wrap" id="courses">
+    <div class="sect-head rise">
+      <div class="eyebrow" data-i18n="courses.eyebrow"></div>
+      <h2 class="display" data-i18n="courses.h"></h2>
+      <p data-i18n="courses.sub"></p>
+    </div>
+    <div class="chips rise" id="chips" role="group"></div>
+    <div class="courses" id="courseGrid"></div>
+  </section>
+
+  <!-- PATH -->
+  <section class="sect wrap" id="path">
+    <div class="sect-head rise">
+      <div class="eyebrow" data-i18n="path.eyebrow"></div>
+      <h2 class="display" data-i18n="path.h"></h2>
+      <p data-i18n="path.sub"></p>
+    </div>
+    <div class="rail rise" id="rail"></div>
+  </section>
+
+  <!-- TEACHERS -->
+  <section class="sect wrap" id="teachers">
+    <div class="sect-head rise">
+      <div class="eyebrow" data-i18n="team.eyebrow"></div>
+      <h2 class="display" data-i18n="team.h"></h2>
+      <p data-i18n="team.sub"></p>
+    </div>
+    <div class="lead-pair rise" id="leads"></div>
+    <div class="crew rise" id="crew"></div>
+  </section>
+
+  <!-- BATCHES -->
+  <section class="sect wrap" id="batches">
+    <div class="sect-head rise">
+      <div class="eyebrow" data-i18n="batches.eyebrow"></div>
+      <h2 class="display" data-i18n="batches.h"></h2>
+      <p data-i18n="batches.sub"></p>
+    </div>
+    <div class="tbl-wrap rise">
+      <table>
+        <thead><tr>
+          <th data-i18n="th.batch"></th><th data-i18n="th.when"></th>
+          <th data-i18n="th.mode"></th><th data-i18n="th.fee"></th><th data-i18n="th.seats"></th>
+        </tr></thead>
+        <tbody id="batchBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section class="sect wrap" id="voices">
+    <div class="sect-head rise">
+      <div class="eyebrow" data-i18n="voices.eyebrow"></div>
+      <h2 class="display" data-i18n="voices.h"></h2>
+    </div>
+    <div class="voices rise" id="voiceGrid"></div>
+  </section>
+
+  <!-- ENROL -->
+  <section class="sect wrap" id="enrol">
+    <div class="sect-head rise">
+      <div class="eyebrow" data-i18n="enrol.eyebrow"></div>
+      <h2 class="display" data-i18n="enrol.h"></h2>
+      <p data-i18n="enrol.sub"></p>
+    </div>
+    <div class="enrol-grid">
+      <div class="form-card rise">
+        <div class="two">
+          <div class="field"><label for="f-name" data-i18n="form.name"></label><input id="f-name" type="text" autocomplete="name"></div>
+          <div class="field"><label for="f-age" data-i18n="form.age"></label><input id="f-age" type="number" min="4" max="99"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-phone" data-i18n="form.phone"></label><input id="f-phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-mail" data-i18n="form.mail"></label><input id="f-mail" type="email" autocomplete="email"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-course" data-i18n="form.course"></label><select id="f-course"></select></div>
+          <div class="field"><label for="f-mode" data-i18n="form.mode"></label><select id="f-mode"></select></div>
+        </div>
+        <div class="field"><label for="f-exp" data-i18n="form.exp"></label><select id="f-exp"></select></div>
+        <div class="field"><label for="f-msg" data-i18n="form.msg"></label><textarea id="f-msg"></textarea></div>
+        <div class="form-btns">
+          <button class="btn btn-primary" type="button" id="sendWa" data-i18n="form.wa"></button>
+          <button class="btn btn-ghost" type="button" id="sendMail" data-i18n="form.email"></button>
+        </div>
+        <p class="form-note" id="formNote" data-i18n="form.note"></p>
+      </div>
+
+      <div class="rise">
+        <div class="eyebrow" data-i18n="contact.eyebrow"></div>
+        <h3 class="display" style="font-size:30px; margin:12px 0 6px" data-i18n="contact.h"></h3>
+        <p style="color:var(--ink2); margin:0" data-i18n="contact.sub"></p>
+        <div class="reach" id="reach"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span data-i18n="foot.left"></span>
+    <div class="social" id="social"></div>
+    <span data-i18n="foot.right"></span>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="Back to top">↑</button>
+
+<!-- course detail sheet -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="veil" data-close></div>
+  <div class="sheet-card">
+    <button class="close" type="button" data-close aria-label="Close">×</button>
+    <div class="sheet-hero" id="sheetHero"></div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   CONTENT — everything lives here. Swap the kn/en strings and
+   the whole site updates in both languages.
+   ═══════════════════════════════════════════════════════════ */
+
+const STR = {
+  preview:{kn:'ಇದು ವಿನ್ಯಾಸದ ಮಾದರಿ. <b>ಹೆಸರು, ಶುಲ್ಕ, ಫೋಟೋ ಎಲ್ಲವೂ ಬದಲಾಗಬೇಕು.</b>',
+           en:'Design preview. <b>Names, fees and photos are placeholders.</b>'},
+  brand:{kn:'ಆಲಾಪ್ ಸಂಗೀತ ಶಾಲೆ',en:'Alaap Sangeetha Shale'},
+  brandSub:{kn:'ಸಂಗೀತ ಶಾಲೆ · ಬೆಂಗಳೂರು',en:'Music School · Bengaluru'},
+
+  'nav.about':{kn:'ನಮ್ಮ ಬಗ್ಗೆ',en:'About'},
+  'nav.courses':{kn:'ತರಗತಿಗಳು',en:'Courses'},
+  'nav.path':{kn:'ಕಲಿಕೆಯ ಹಾದಿ',en:'The path'},
+  'nav.teachers':{kn:'ಗುರುಗಳು',en:'Teachers'},
+  'nav.batches':{kn:'ವೇಳಾಪಟ್ಟಿ',en:'Batches'},
+  'nav.enrol':{kn:'ದಾಖಲಾತಿ',en:'Enrol'},
+
+  'hero.badge':{kn:'ಜಯನಗರ, ಬೆಂಗಳೂರು · ೨೦೨೬ರಿಂದ',en:'Jayanagar, Bengaluru · opening 2026'},
+  'hero.title':{
+    kn:'ಮೊದಲು <em>ಕೇಳಲು</em> ಕಲಿಯಿರಿ',
+    en:'First learn to <em>listen</em>'
+  },
+  'hero.quote':{
+    kn:'ಶ್ರುತಿ ಸಿಕ್ಕ ಮೇಲೆ ಸ್ವರ ತಾನಾಗಿ ಬರುತ್ತದೆ. ಅದಕ್ಕೇ ಇಲ್ಲಿ ಪ್ರತಿ ತರಗತಿಯೂ ತಂಬೂರಿಯ ಮುಂದೆ ಕುಳಿತು ಶುರುವಾಗುತ್ತದೆ.',
+    en:'Once the ear finds the drone, the notes follow on their own. That is why every class here begins sitting in front of a tanpura.'
+  },
+  'cta.enrol':{kn:'ದಾಖಲಾತಿ ಆರಂಭಿಸಿ',en:'Start enrolment'},
+  'cta.browse':{kn:'ತರಗತಿಗಳನ್ನು ನೋಡಿ',en:'Browse the courses'},
+
+  'board.title':{kn:'ಸಪ್ತ ಸ್ವರ',en:'The seven swaras'},
+  'board.sub':{kn:'ಒತ್ತಿ ನೋಡಿ',en:'tap to hear'},
+  'board.aarohana':{kn:'ಆರೋಹಣ ನುಡಿಸಿ',en:'Play the aarohana'},
+  'board.drone':{kn:'ಶ್ರುತಿ',en:'Shruti drone'},
+  'board.hint':{kn:'ಇದೇ ಮೊದಲ ದಿನದ ಪಾಠ — ಬೇರೇನೂ ಅಲ್ಲ.',en:'This, more or less, is day one. Nothing else.'},
+  'notice.label':{kn:'ಸೂಚನಾ ಫಲಕ',en:'Notice board'},
+
+  'about.eyebrow':{kn:'ನಮ್ಮ ಬಗ್ಗೆ',en:'About us'},
+  'about.h':{kn:'ಹೆಸರೇ ಸಂಗೀತದ ಮೊದಲ ನಿಮಿಷ',en:'The name is the music’s first minute'},
+  'about.lead':{
+    kn:'ಆಲಾಪ ಎಂದರೆ ತಾಳ ಶುರುವಾಗುವ ಮೊದಲಿನ ಭಾಗ — ಹಾಡುಗಾರ ರಾಗವನ್ನು ನಿಧಾನಕ್ಕೆ ಹುಡುಕುವ ಹೊತ್ತು. ಕಲಿಕೆಯೂ ಹಾಗೇ ಶುರುವಾಗಬೇಕು ಎಂಬುದು ನಮ್ಮ ನಂಬಿಕೆ.',
+    en:'An alaap is the part before the rhythm begins — the unhurried stretch where a singer feels around for the raga. We think learning should start the same way.'
+  },
+  'about.p1':{
+    kn:'ಇಲ್ಲಿ ಯಾವ ವಿದ್ಯಾರ್ಥಿಗೂ ಮೊದಲ ದಿನವೇ ಹಾಡು ಕೊಡುವುದಿಲ್ಲ. ಮೊದಲ ಎರಡು ವಾರ ತಂಬೂರಿಯ ಜೊತೆ ಕಿವಿ ಹೊಂದಿಸುವುದು ಮಾತ್ರ. ಆಮೇಲೆ ಸ್ವರ, ಅಲಂಕಾರ, ರಾಗ — ಒಂದೊಂದೇ.',
+    en:'No student is handed a song on day one. The first fortnight is only tuning the ear to the tanpura. Swara, alankara and raga come after that, one at a time.'
+  },
+  'about.p2':{
+    kn:'ಶಾಸ್ತ್ರೀಯ ಬುನಾದಿ ಬಿಗಿಯಾಗಿರಬೇಕು, ಆದರೆ ಹಾಡುಗಾರಿಕೆ ಬಿಗಿಯಾಗಬಾರದು. ಹಾಗಾಗಿ ಇಲ್ಲಿ ವರ್ಣ ಕಲಿಯುವವರೇ ಚಿತ್ರಗೀತೆಯನ್ನೂ ಮೈಕಿನ ಮುಂದೆ ಹಾಡುತ್ತಾರೆ.',
+    en:'The grammar should be tight; the singing should not be. So the same student who learns a varnam also spends a term in front of a microphone singing film songs.'
+  },
+  ledger:[
+    {n:9, kn:'ಕಲಿಸುವ ವಿಷಯಗಳು', en:'courses on offer'},
+    {n:8, kn:'ಒಂದು ಬ್ಯಾಚ್‌ಗೆ ಗರಿಷ್ಠ ವಿದ್ಯಾರ್ಥಿಗಳು', en:'students to a batch, at most'},
+    {n:2, kn:'ವರ್ಷಕ್ಕೆ ವೇದಿಕೆ ಕಾರ್ಯಕ್ರಮಗಳು', en:'stage recitals a year'},
+    {n:340, suffix:'+', kn:'ಗುರುಗಳ ಬಳಿ ಇದುವರೆಗೆ ಕಲಿತವರು', en:'students taught so far'}
+  ],
+
+  'courses.eyebrow':{kn:'ತರಗತಿಗಳು',en:'Courses'},
+  'courses.h':{kn:'ಯಾವ ಕೋಣೆಯಲ್ಲಿ ಕೂರಬೇಕು?',en:'Which room do you want to sit in?'},
+  'courses.sub':{kn:'ಯಾವುದೇ ಕೋರ್ಸ್ ಮೇಲೆ ಒತ್ತಿ — ಪಾಠಕ್ರಮ, ಅವಧಿ, ಶುಲ್ಕ, ಏನು ತರಬೇಕು ಎಲ್ಲ ವಿವರ ಸಿಗುತ್ತದೆ.',
+             en:'Tap any course for the syllabus, the term length, the fee and what to bring.'},
+  'courses.all':{kn:'ಎಲ್ಲ',en:'All'},
+
+  'path.eyebrow':{kn:'ಕಲಿಕೆಯ ಹಾದಿ',en:'The path'},
+  'path.h':{kn:'ಐದು ಹಂತ, ಇದೇ ಕ್ರಮದಲ್ಲಿ',en:'Five stages, in this order'},
+  'path.sub':{kn:'ಈ ಕ್ರಮ ಬದಲಾಗುವುದಿಲ್ಲ. ಒಂದು ಹಂತ ಮುಗಿದರೆ ಮಾತ್ರ ಮುಂದಿನದು ಸಾಧ್ಯ.',
+              en:'The sequence does not change, because each stage is what makes the next one possible.'},
+
+  'team.eyebrow':{kn:'ಗುರುಗಳು',en:'Teachers'},
+  'team.h':{kn:'ಯಾರ ಬಳಿ ಕಲಿಯುತ್ತೀರಿ',en:'Who you will be learning from'},
+  'team.sub':{kn:'ಪ್ರತಿ ತರಗತಿಗೂ ಒಬ್ಬರೇ ಗುರು — ವರ್ಷ ಪೂರ್ತಿ ಬದಲಾಗುವುದಿಲ್ಲ.',
+              en:'One teacher per course, and the same one all year — no rotating substitutes.'},
+
+  'batches.eyebrow':{kn:'ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ಶುಲ್ಕ',en:'Batches and fees'},
+  'batches.h':{kn:'ಈ ಅವಧಿಗೆ ತೆರೆದಿರುವ ಬ್ಯಾಚ್‌ಗಳು',en:'Batches open this term'},
+  'batches.sub':{kn:'ಶುಲ್ಕ ತಿಂಗಳಿಗೆ. ತಂಬೂರಿ, ಸ್ವರಲಿಪಿ ಪುಸ್ತಕ ಮತ್ತು ವೇದಿಕೆ ಕಾರ್ಯಕ್ರಮದ ಪಕ್ಕವಾದ್ಯ ಇದರಲ್ಲೇ ಸೇರಿದೆ.',
+                 en:'Fees are monthly. Tanpura, notation books and recital accompaniment are included.'},
+  'th.batch':{kn:'ಬ್ಯಾಚ್',en:'Batch'},
+  'th.when':{kn:'ದಿನ ಮತ್ತು ಸಮಯ',en:'Days and time'},
+  'th.mode':{kn:'ವಿಧಾನ',en:'Mode'},
+  'th.fee':{kn:'ಶುಲ್ಕ',en:'Fee'},
+  'th.seats':{kn:'ಸ್ಥಾನ',en:'Seats'},
+  'seats.open':{kn:'ಖಾಲಿ ಇದೆ',en:'Open'},
+  'seats.few':{kn:'ಕೊನೆಯ ಕೆಲವು',en:'Filling up'},
+  'seats.full':{kn:'ಭರ್ತಿ',en:'Full'},
+  perMonth:{kn:'/ ತಿಂಗಳು',en:'/ month'},
+
+  'voices.eyebrow':{kn:'ವಿದ್ಯಾರ್ಥಿಗಳ ಮಾತು',en:'Voices'},
+  'voices.h':{kn:'ಕಲಿಯುತ್ತಿರುವವರು ಹೇಳಿದ್ದು',en:'From the people in the room'},
+
+  'enrol.eyebrow':{kn:'ದಾಖಲಾತಿ',en:'Enrolment'},
+  'enrol.h':{kn:'ವಿದ್ಯಾರ್ಥಿಯ ನೋಂದಣಿ',en:'Register a student'},
+  'enrol.sub':{kn:'ವಿವರ ತುಂಬಿ ಕಳುಹಿಸಿ. ಎರಡು ದಿನದೊಳಗೆ ಕರೆ ಮಾಡಿ ಉಚಿತ ಪರಿಚಯ ತರಗತಿಗೆ ಸಮಯ ನಿಗದಿ ಮಾಡುತ್ತೇವೆ.',
+               en:'Fill this in and send it. We call back within two days and fix a time for the free trial class.'},
+  'form.name':{kn:'ವಿದ್ಯಾರ್ಥಿಯ ಹೆಸರು',en:'Student’s name'},
+  'form.age':{kn:'ವಯಸ್ಸು',en:'Age'},
+  'form.phone':{kn:'ಫೋನ್ / ವಾಟ್ಸಾಪ್',en:'Phone / WhatsApp'},
+  'form.mail':{kn:'ಇ-ಮೇಲ್ (ಐಚ್ಛಿಕ)',en:'Email (optional)'},
+  'form.course':{kn:'ಆಸಕ್ತಿಯ ಕೋರ್ಸ್',en:'Course'},
+  'form.mode':{kn:'ವಿಧಾನ',en:'Mode'},
+  'form.exp':{kn:'ಈ ಹಿಂದೆ ಸಂಗೀತ ಕಲಿತಿದ್ದೀರಾ',en:'Previous training'},
+  'form.msg':{kn:'ಸಂದೇಶ (ಐಚ್ಛಿಕ)',en:'Anything else (optional)'},
+  'form.wa':{kn:'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಕಳುಹಿಸಿ',en:'Send on WhatsApp'},
+  'form.email':{kn:'ಇ-ಮೇಲ್ ಡ್ರಾಫ್ಟ್',en:'Email draft'},
+  'form.note':{kn:'ವಿವರಗಳು ನೇರವಾಗಿ ಶಾಲೆಗೆ ಹೋಗುತ್ತವೆ. ಈ ಪುಟದಲ್ಲಿ ಏನೂ ಸಂಗ್ರಹವಾಗುವುದಿಲ್ಲ.',
+               en:'Your details go straight to the school. Nothing is stored on this page.'},
+  'form.needName':{kn:'ವಿದ್ಯಾರ್ಥಿಯ ಹೆಸರು ಬರೆಯಿರಿ.',en:'Add the student’s name.'},
+  'form.needAge':{kn:'ವಯಸ್ಸು ಬರೆಯಿರಿ.',en:'Add an age.'},
+  'form.needPhone':{kn:'ಫೋನ್ ಸಂಖ್ಯೆ ಬರೆಯಿರಿ.',en:'Add a phone number.'},
+  'form.badPhone':{kn:'ಫೋನ್ ಸಂಖ್ಯೆ ಸರಿಯಾಗಿಲ್ಲ.',en:'That phone number does not look right.'},
+  'form.opened':{kn:'ಸಂದೇಶ ಸಿದ್ಧವಾಗಿದೆ — ಕಳುಹಿಸುವ ಮೊದಲು ಓದಿ ನೋಡಿ.',en:'Message ready — read it once before you send.'},
+  modeOptions:[
+    {kn:'ನೇರ ತರಗತಿ',en:'In person'},
+    {kn:'ಆನ್‌ಲೈನ್',en:'Online'},
+    {kn:'ಎರಡೂ ನಡೆಯುತ್ತದೆ',en:'Either works'}
+  ],
+  expOptions:[
+    {kn:'ಇಲ್ಲ — ಸಂಪೂರ್ಣ ಆರಂಭಿಕ',en:'None — complete beginner'},
+    {kn:'ಒಂದು ವರ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ',en:'Under a year'},
+    {kn:'ಒಂದರಿಂದ ಮೂರು ವರ್ಷ',en:'One to three years'},
+    {kn:'ಮೂರು ವರ್ಷಕ್ಕಿಂತ ಹೆಚ್ಚು',en:'More than three years'}
+  ],
+  stillDeciding:{kn:'ಇನ್ನೂ ನಿರ್ಧರಿಸಿಲ್ಲ',en:'Still deciding'},
+
+  'contact.eyebrow':{kn:'ಸಂಪರ್ಕ',en:'Contact'},
+  'contact.h':{kn:'ಬಂದು ಒಂದು ತರಗತಿ ಕೇಳಿ',en:'Come and sit in on a class'},
+  'contact.sub':{kn:'ಶುಲ್ಕವಿಲ್ಲ, ಒತ್ತಾಯವಿಲ್ಲ. ಮೊದಲು ಕರೆ ಮಾಡಿ ಸಮಯ ಕೇಳಿಕೊಂಡರೆ ಸಾಕು.',
+                 en:'No fee, no obligation. Just call ahead so we can tell you which class to walk into.'},
+
+  'sheet.about':{kn:'ಈ ಕೋರ್ಸ್ ಬಗ್ಗೆ',en:'About this course'},
+  'sheet.learn':{kn:'ಏನು ಕಲಿಯುತ್ತೀರಿ',en:'What you will learn'},
+  'sheet.bring':{kn:'ಏನು ತರಬೇಕು',en:'What to bring'},
+  'f.teacher':{kn:'ಗುರು',en:'Teacher'},
+  'f.level':{kn:'ಹಂತ',en:'Level'},
+  'f.age':{kn:'ವಯಸ್ಸು',en:'Age'},
+  'f.class':{kn:'ಒಂದು ತರಗತಿ',en:'Class length'},
+  'f.week':{kn:'ವಾರಕ್ಕೆ',en:'Per week'},
+  'f.term':{kn:'ಒಂದು ಅವಧಿ',en:'Term'},
+  'u.min':{kn:'ನಿಮಿಷ',en:'min'},
+  'u.classes':{kn:'ತರಗತಿ',en:'classes'},
+  'u.months':{kn:'ತಿಂಗಳು',en:'months'},
+  'u.yrs':{kn:'ವರ್ಷ ಮೇಲ್ಪಟ್ಟು',en:'and above'},
+
+  'foot.left':{kn:'© ೨೦೨೬ ಆಲಾಪ್ ಸಂಗೀತ ಶಾಲೆ',en:'© 2026 Alaap Sangeetha Shale'},
+  'foot.right':{kn:'ಜಯನಗರ ೪ನೇ ಬ್ಲಾಕ್, ಬೆಂಗಳೂರು ೫೬೦೦೧೧',en:'Jayanagar 4th Block, Bengaluru 560011'}
+};
+
+const NOTICES = [
+  {kn:'ಹೊಸ ಆರಂಭಿಕ ಬ್ಯಾಚ್ · ಸೆಪ್ಟೆಂಬರ್ ೧ರಿಂದ',        en:'New beginners’ batch · from September 1'},
+  {kn:'ವಾರ್ಷಿಕ ವೇದಿಕೆ ಕಾರ್ಯಕ್ರಮ · ಡಿಸೆಂಬರ್ ೧೪',       en:'Annual recital · December 14'},
+  {kn:'ಪುಟಾಣಿ ಸಂಗೀತಕ್ಕೆ ಪ್ರವೇಶ ತೆರೆದಿದೆ',              en:'Kids’ Sangeetha admissions now open'},
+  {kn:'ಉಚಿತ ಪರಿಚಯ ತರಗತಿ · ಪ್ರತಿ ಶನಿವಾರ ಸಂಜೆ ೫',       en:'Free trial class · every Saturday, 5 pm'},
+  {kn:'ಸ್ಟುಡಿಯೋ ಮಾಡ್ಯೂಲ್ · ಅಕ್ಟೋಬರ್ ೬ರಿಂದ ೬ ವಾರ',    en:'Studio module · six weeks from October 6'}
+];
+
+const CATS = [
+  {id:'vocal',      kn:'ಗಾಯನ',           en:'Vocal'},
+  {id:'instrument', kn:'ವಾದ್ಯಗಳು',        en:'Instruments'},
+  {id:'film',       kn:'ಚಿತ್ರ ಮತ್ತು ಸ್ಟುಡಿಯೋ', en:'Film and studio'},
+  {id:'kids',       kn:'ಮಕ್ಕಳಿಗಾಗಿ',       en:'For children'}
+];
+
+const COURSES = [
+  {
+    cat:'vocal', sw:'ಸ', hue:['#FBE7C6','#F6C98A'],
+    t:{kn:'ಕರ್ನಾಟಕ ಶಾಸ್ತ್ರೀಯ ಗಾಯನ',en:'Carnatic vocal'},
+    line:{kn:'ಸರಳೆ ವರಸೆಯಿಂದ ಕೃತಿಯವರೆಗೆ, ಪೂರ್ಣ ಹಾದಿ.',en:'Sarale varase to kriti — the whole road.'},
+    about:{
+      kn:'ಸಂಪ್ರದಾಯದ ಕ್ರಮದಲ್ಲೇ ಸಾಗುವ ತರಗತಿ. ಮೊದಲ ವರ್ಷ ಸರಳೆ, ಜಂಟಿ, ಅಲಂಕಾರ ಮತ್ತು ಗೀತೆ; ಎರಡನೇ ವರ್ಷದಿಂದ ವರ್ಣ ಮತ್ತು ಕೃತಿ. ತಾಳ ಹಾಕುವುದನ್ನು ಮೊದಲ ವಾರದಿಂದಲೇ ಕಲಿಸಲಾಗುತ್ತದೆ — ಸ್ವರ ಬಾಯಲ್ಲಿ, ಲಯ ಕೈಯಲ್ಲಿ.',
+      en:'The traditional order, kept intact. Year one is sarale, janti, alankara and geete; varnams and kritis begin in year two. Taala goes on the hand from the first week — the note in the voice, the cycle in the palm.'
+    },
+    learn:{
+      kn:['ಸ್ವರ ಸ್ಥಾನ ಮತ್ತು ಶ್ರುತಿ ಶುದ್ಧತೆ','ಆದಿ, ರೂಪಕ, ಝಂಪೆ ತಾಳಗಳು','ಗಮಕ ಮತ್ತು ಸಂಚಾರ','ಎರಡು ವರ್ಷದಲ್ಲಿ ಮೊದಲ ಕೃತಿ'],
+      en:['Exact note placement and pitch purity','Adi, Rupaka and Jhampe taala cycles','Gamaka and characteristic raga phrases','Your first full kriti within two years']
+    },
+    teacher:{kn:'ಶ್ರೀಕಂಠ ಜೋಶಿ',en:'Shrikanta Joshi'},
+    level:{kn:'ಆರಂಭಿಕರಿಂದ ಮುಂದುವರಿದವರೆಗೆ',en:'Beginner to advanced'},
+    age:8, mins:60, week:2, term:3,
+    bring:{kn:['ಸ್ವರಲಿಪಿ ಪುಸ್ತಕ (ಶಾಲೆಯಿಂದ)','ನೀರಿನ ಬಾಟಲಿ'],en:['Notation book (given here)','A water bottle']}
+  },
+  {
+    cat:'vocal', sw:'ರಿ', hue:['#DDE2FA','#B6BFF2'],
+    t:{kn:'ಹಿಂದೂಸ್ತಾನಿ ಗಾಯನ',en:'Hindustani vocal'},
+    line:{kn:'ಖರಜ್ ಸಾಧನೆ, ಆಲಾಪ್, ಬಂದಿಶ್, ಲಯಕಾರಿ.',en:'Kharaj practice, alaap, bandish, layakari.'},
+    about:{
+      kn:'ಖಯಾಲ್ ಗಾಯಕಿಯ ತರಬೇತಿ. ದಿನಕ್ಕೆ ಇಪ್ಪತ್ತು ನಿಮಿಷ ಖರಜ್ ಸಾಧನೆ ಕಡ್ಡಾಯ — ಅದೇ ಈ ಶೈಲಿಯ ಬುನಾದಿ. ರಾಗಗಳನ್ನು ಸಮಯದ ಪ್ರಕಾರ ಕಲಿಸಲಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಸಂಜೆಯ ತರಗತಿಯಲ್ಲಿ ಸಂಜೆಯ ರಾಗಗಳೇ.',
+      en:'Khayal gayaki, taught properly. Twenty minutes of daily kharaj practice is non-negotiable — it is the foundation of the whole style. Ragas are taught by their hour, so an evening class works on evening ragas.'
+    },
+    learn:{
+      kn:['ಖರಜ್ ಮತ್ತು ಸ್ವರ ರಿಯಾಜ್','ವಿಲಂಬಿತ ಮತ್ತು ದ್ರುತ್ ಬಂದಿಶ್','ತೀನ್‌ತಾಲ್, ಏಕ್‌ತಾಲ್, ಝಪ್‌ತಾಲ್','ಆಲಾಪ್ ಕಟ್ಟುವ ಕ್ರಮ'],
+      en:['Kharaj and swara riyaz','Vilambit and drut bandish','Teentaal, Ektaal and Jhaptaal','How to build an alaap without wandering']
+    },
+    teacher:{kn:'ಶ್ರೀಕಂಠ ಜೋಶಿ',en:'Shrikanta Joshi'},
+    level:{kn:'ಆರಂಭಿಕರಿಂದ ಮುಂದುವರಿದವರೆಗೆ',en:'Beginner to advanced'},
+    age:10, mins:60, week:2, term:3,
+    bring:{kn:['ಸ್ವರಲಿಪಿ ಪುಸ್ತಕ (ಶಾಲೆಯಿಂದ)','ತಂಬೂರಿ ಆ್ಯಪ್ ಇದ್ದರೆ ಒಳ್ಳೆಯದು'],en:['Notation book (given here)','A tanpura app on your phone helps']}
+  },
+  {
+    cat:'film', sw:'ಗ', hue:['#FAD8E2','#F2A9BF'],
+    t:{kn:'ಸುಗಮ ಮತ್ತು ಚಿತ್ರಗೀತೆ',en:'Light and film singing'},
+    line:{kn:'ಭಾವಗೀತೆ, ಚಿತ್ರಗೀತೆ, ಟ್ರ್ಯಾಕ್‌ಗೆ ಹಾಡುವುದು.',en:'Bhavageete, film songs, singing to a track.'},
+    about:{
+      kn:'ಕನ್ನಡ ಚಿತ್ರಗೀತೆ ಮತ್ತು ಭಾವಗೀತೆಯ ತರಗತಿ. ಉಚ್ಚಾರಣೆ, ಉಸಿರಿನ ನಿಯಂತ್ರಣ ಮತ್ತು ಪದದ ಭಾವ — ಈ ಮೂರರ ಮೇಲೇ ಹೆಚ್ಚು ಕೆಲಸ. ಪ್ರತಿ ಅವಧಿಯ ಕೊನೆಗೆ ಒಂದು ಹಾಡನ್ನು ಟ್ರ್ಯಾಕ್‌ನೊಂದಿಗೆ ರೆಕಾರ್ಡ್ ಮಾಡಿಸುತ್ತೇವೆ.',
+      en:'Kannada film songs and bhavageete. Most of the work goes into diction, breath control and meaning the words. Every term ends with each student recording one song to a backing track.'
+    },
+    learn:{
+      kn:['ಉಸಿರಿನ ನಿಯಂತ್ರಣ ಮತ್ತು ಸ್ಟ್ಯಾಮಿನಾ','ಕನ್ನಡ ಉಚ್ಚಾರಣೆ ಮತ್ತು ಪದ ವಿಭಜನೆ','ಕ್ಲಿಕ್ ಮತ್ತು ಟ್ರ್ಯಾಕ್‌ಗೆ ಹಾಡುವುದು','ಅವಧಿಯ ಕೊನೆಗೆ ಒಂದು ರೆಕಾರ್ಡಿಂಗ್'],
+      en:['Breath control and stamina','Kannada diction and phrasing','Singing to a click and to a track','One finished recording per term']
+    },
+    teacher:{kn:'ಶ್ರೀಕಂಠ ಜೋಶಿ',en:'Shrikanta Joshi'},
+    level:{kn:'ಎಲ್ಲ ಹಂತಗಳಿಗೂ',en:'All levels'},
+    age:12, mins:75, week:1, term:3,
+    bring:{kn:['ನಿಮ್ಮ ಇಷ್ಟದ ಎರಡು ಹಾಡು','ಇಯರ್‌ಫೋನ್'],en:['Two songs you love','Your own earphones']}
+  },
+  {
+    cat:'film', sw:'ಮ', hue:['#D5EDEC','#A6D6D4'],
+    t:{kn:'ಸ್ಟುಡಿಯೋ ಮತ್ತು ಮೈಕ್ ಕೌಶಲ',en:'Studio and mic craft'},
+    line:{kn:'ಆರು ವಾರಗಳ ಮಾಡ್ಯೂಲ್ — ರೆಕಾರ್ಡಿಂಗ್ ಕೋಣೆಯ ಪಾಠ.',en:'A six-week module on the recording room.'},
+    about:{
+      kn:'ವೇದಿಕೆಯಲ್ಲಿ ಚೆನ್ನಾಗಿ ಹಾಡುವವರೂ ಮೈಕ್ ಮುಂದೆ ಸೋಲುತ್ತಾರೆ. ಈ ಮಾಡ್ಯೂಲ್ ಅದನ್ನೇ ಸರಿಪಡಿಸುತ್ತದೆ — ಮೈಕ್ ಅಂತರ, ಟೇಕ್ ಮತ್ತು ಪಂಚ್-ಇನ್, ಹೆಡ್‌ಫೋನ್ ಮಿಕ್ಸ್, ಮತ್ತು ಕ್ಲಿಕ್‌ಗೆ ಭಾವ ಬಿಡದೆ ಹಾಡುವುದು.',
+      en:'Plenty of singers who are fine on stage fall apart in front of a microphone. This module fixes exactly that: mic distance, takes and punch-ins, headphone mix, and holding feeling while singing to a click.'
+    },
+    learn:{
+      kn:['ಮೈಕ್ ಅಂತರ ಮತ್ತು ಪಾಪ್ ನಿಯಂತ್ರಣ','ಟೇಕ್, ಪಂಚ್-ಇನ್ ಮತ್ತು ಕಾಂಪಿಂಗ್','ಹೆಡ್‌ಫೋನ್ ಮಿಕ್ಸ್ ಕೇಳಿಕೊಳ್ಳುವುದು','ಕೋರಸ್ ಮತ್ತು ಡಬಲ್ ಟ್ರ್ಯಾಕಿಂಗ್'],
+      en:['Mic distance and controlling plosives','Takes, punch-ins and comping','Asking for the headphone mix you need','Chorus work and double-tracking']
+    },
+    teacher:{kn:'ಶ್ರೀಕಂಠ ಜೋಶಿ',en:'Shrikanta Joshi'},
+    level:{kn:'ಮಧ್ಯಮ ಹಂತದಿಂದ',en:'Intermediate and up'},
+    age:14, mins:90, week:1, term:1.5,
+    bring:{kn:['ಒಂದು ಸಿದ್ಧಪಡಿಸಿದ ಹಾಡು','ಇಯರ್‌ಫೋನ್'],en:['One song you have prepared','Your own earphones']}
+  },
+  {
+    cat:'instrument', sw:'ಪ', hue:['#FBE7C6','#EFC489'],
+    t:{kn:'ಕೀಬೋರ್ಡ್ ಮತ್ತು ಹಾರ್ಮೋನಿಯಂ',en:'Keyboard and harmonium'},
+    line:{kn:'ಎರಡೂ ಕೈ, ಎರಡೂ ಸ್ವರಲಿಪಿ, ಸಾಥ್ ನೀಡುವಷ್ಟು ಶಾಸ್ತ್ರ.',en:'Both hands, both notations, enough theory to accompany.'},
+    about:{
+      kn:'ಹಾರ್ಮೋನಿಯಂನಿಂದ ಶುರುವಾಗಿ ಕೀಬೋರ್ಡ್‌ಗೆ ಸಾಗುವ ತರಗತಿ. ಗುರಿ ಸ್ಪಷ್ಟ: ಒಂದು ವರ್ಷದ ಕೊನೆಗೆ ಒಬ್ಬ ಗಾಯಕರಿಗೆ ಆತ್ಮವಿಶ್ವಾಸದಿಂದ ಸಾಥ್ ನೀಡುವುದು.',
+      en:'Starts on the harmonium and moves to the keyboard. The goal is stated plainly: by the end of a year you should be able to accompany a singer without panicking.'
+    },
+    learn:{
+      kn:['ಬೆರಳಿಕೆ ಮತ್ತು ಕೈ ಸ್ಥಾನ','ಭಾರತೀಯ ಮತ್ತು ಪಾಶ್ಚಾತ್ಯ ಸ್ವರಲಿಪಿ','ಕಾರ್ಡ್ ಮತ್ತು ಸರಳ ಜೋಡಣೆ','ಗಾಯಕರಿಗೆ ಸಾಥ್'],
+      en:['Fingering and hand position','Indian and Western notation, side by side','Chords and simple arrangement','Accompanying a live singer']
+    },
+    teacher:{kn:'ಅನನ್ಯಾ ರಾವ್',en:'Ananya Rao'},
+    level:{kn:'ಆರಂಭಿಕರಿಗೆ ಸೂಕ್ತ',en:'Beginner friendly'},
+    age:8, mins:60, week:2, term:3,
+    bring:{kn:['ಮನೆಯಲ್ಲಿ ಅಭ್ಯಾಸಕ್ಕೆ ಒಂದು ಕೀಬೋರ್ಡ್'],en:['A keyboard at home for practice']}
+  },
+  {
+    cat:'instrument', sw:'ದ', hue:['#DDE2FA','#BAC3F0'],
+    t:{kn:'ತಬಲಾ ಮತ್ತು ಲಯ',en:'Tabla and rhythm'},
+    line:{kn:'ಬೋಲ್, ಠೇಕಾ, ತಾಳ — ಜೊತೆಗೆ ಕೊನ್ನಕ್ಕೋಲ್.',en:'Bols, theka and taala — with konnakol alongside.'},
+    about:{
+      kn:'ತಬಲಾ ನುಡಿಸುವುದರ ಜೊತೆಗೆ ಬಾಯಲ್ಲಿ ಲಯ ಹೇಳುವುದನ್ನೂ ಕಲಿಸುತ್ತೇವೆ. ಕೈ ಮರೆತರೂ ಬಾಯಿ ನೆನಪಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ — ಎಣಿಕೆ ದೇಹದಲ್ಲೇ ಉಳಿಯುವುದು ಹೀಗೆ.',
+      en:'Alongside playing, students learn to speak rhythm aloud. The hands may forget but the mouth remembers — that is how counting settles into the body instead of the head.'
+    },
+    learn:{
+      kn:['ನಾ, ತಿನ್, ಧಾ, ಗೆ — ಮೂಲ ಬೋಲ್‌ಗಳು','ತೀನ್‌ತಾಲ್ ಮತ್ತು ಕೆಹರ್ವಾ ಠೇಕಾ','ಕಾಯಿದಾ ಮತ್ತು ತಿಹಾಯಿ','ಕೊನ್ನಕ್ಕೋಲ್ ಮೂಲಕ ಲಯ ಎಣಿಕೆ'],
+      en:['Na, tin, dha, ge — the basic bols','Teentaal and Kehrwa theka','Kaida and tihai','Counting rhythm through konnakol']
+    },
+    teacher:{kn:'ಪ್ರಶಾಂತ್ ಎಂ.',en:'Prashanth M.'},
+    level:{kn:'ಆರಂಭಿಕರಿಂದ ಮಧ್ಯಮ ಹಂತ',en:'Beginner to intermediate'},
+    age:9, mins:60, week:1, term:3,
+    bring:{kn:['ಮನೆಯಲ್ಲಿ ಅಭ್ಯಾಸಕ್ಕೆ ಒಂದು ಜೋಡಿ ತಬಲಾ'],en:['A pair of tabla at home for practice']}
+  },
+  {
+    cat:'instrument', sw:'ನಿ', hue:['#FAD8E2','#EFB2C5'],
+    t:{kn:'ಪಿಟೀಲು',en:'Violin'},
+    line:{kn:'ಭಂಗಿ, ಬೆರಳಿಕೆ, ಗಮಕ, ಕೃತಿಗೆ ಸಾಥ್.',en:'Posture, fingering, gamaka, accompaniment.'},
+    about:{
+      kn:'ಕರ್ನಾಟಕ ಶೈಲಿಯ ಪಿಟೀಲು. ಮೊದಲ ಎರಡು ತಿಂಗಳು ಕುಳಿತುಕೊಳ್ಳುವ ಭಂಗಿ ಮತ್ತು ಬಿಲ್ಲಿನ ಹಿಡಿತಕ್ಕೇ ಮೀಸಲು — ಇದನ್ನು ಆತುರದಲ್ಲಿ ದಾಟಿದರೆ ಮುಂದೆ ಸರಿಪಡಿಸಲು ಆಗುವುದಿಲ್ಲ.',
+      en:'Carnatic-style violin. The first two months go entirely to sitting posture and bow grip — rush past this and it cannot be corrected later.'
+    },
+    learn:{
+      kn:['ಭಂಗಿ ಮತ್ತು ಬಿಲ್ಲಿನ ಹಿಡಿತ','ಶ್ರುತಿ ಹೊಂದಿಸುವುದು','ಗಮಕ ಮತ್ತು ಸ್ವರ ಜಾರಿಕೆ','ಗಾಯಕರಿಗೆ ಕೃತಿ ಸಾಥ್'],
+      en:['Posture and bow grip','Tuning the instrument yourself','Gamaka and sliding between notes','Accompanying a singer through a kriti']
+    },
+    teacher:{kn:'ಭಾಗ್ಯಾ ಎಸ್.',en:'Bhagya S.'},
+    level:{kn:'ಆರಂಭಿಕರಿಂದ ಮುಂದುವರಿದವರೆಗೆ',en:'Beginner to advanced'},
+    age:9, mins:60, week:1, term:3,
+    bring:{kn:['ಸ್ವಂತ ಪಿಟೀಲು (ಸಲಹೆ ಕೊಡುತ್ತೇವೆ)'],en:['Your own violin — we advise on buying one']}
+  },
+  {
+    cat:'instrument', sw:'ಸ̇', hue:['#D5EDEC','#AFDBD9'],
+    t:{kn:'ಗಿಟಾರ್',en:'Guitar'},
+    line:{kn:'ಕಾರ್ಡ್, ಫಿಂಗರ್‌ಸ್ಟೈಲ್, ಚಿತ್ರಗೀತೆ ಜೋಡಣೆ.',en:'Chords, fingerstyle, film-song arrangement.'},
+    about:{
+      kn:'ಮೊದಲ ವರ್ಷ ಪೂರ್ತಿ ಅಕೌಸ್ಟಿಕ್. ಕಾರ್ಡ್ ಮತ್ತು ಸ್ಟ್ರಮ್ಮಿಂಗ್ ಬಂದ ಮೇಲೆ ಕನ್ನಡ ಹಾಡುಗಳನ್ನು ಸ್ವಂತವಾಗಿ ಜೋಡಿಸುವುದನ್ನು ಕಲಿಸುತ್ತೇವೆ. ಎಲೆಕ್ಟ್ರಿಕ್ ಎರಡನೇ ವರ್ಷದಿಂದ.',
+      en:'Acoustic for the whole first year. Once chords and strumming are steady, students learn to arrange Kannada songs for themselves. Electric starts in year two.'
+    },
+    learn:{
+      kn:['ತೆರೆದ ಕಾರ್ಡ್ ಮತ್ತು ಬಾರ್ ಕಾರ್ಡ್','ಸ್ಟ್ರಮ್ಮಿಂಗ್ ಮತ್ತು ಫಿಂಗರ್‌ಸ್ಟೈಲ್','ಕಿವಿಯಿಂದ ಹಾಡು ಎತ್ತಿಕೊಳ್ಳುವುದು','ಗಾಯಕರಿಗೆ ಸಾಥ್'],
+      en:['Open chords and barre chords','Strumming patterns and fingerstyle','Working a song out by ear','Backing a singer']
+    },
+    teacher:{kn:'ಪ್ರಶಾಂತ್ ಎಂ.',en:'Prashanth M.'},
+    level:{kn:'ಎಲ್ಲ ಹಂತಗಳಿಗೂ',en:'All levels'},
+    age:11, mins:60, week:1, term:3,
+    bring:{kn:['ಸ್ವಂತ ಅಕೌಸ್ಟಿಕ್ ಗಿಟಾರ್','ಪ್ಲೆಕ್ಟ್ರಮ್'],en:['Your own acoustic guitar','A few plectrums']}
+  },
+  {
+    cat:'kids', sw:'ಗ', hue:['#FBE7C6','#F3D0A0'],
+    t:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ',en:'Kids’ Sangeetha'},
+    line:{kn:'ಹಾಡು, ಚಪ್ಪಾಳೆ ಆಟ, ಸರಳ ಸ್ವರಾಭ್ಯಾಸ.',en:'Songs, clapping games, simple swara play.'},
+    about:{
+      kn:'ಐದರಿಂದ ಒಂಬತ್ತು ವರ್ಷದ ಮಕ್ಕಳಿಗೆ. ಪರೀಕ್ಷೆ ಇಲ್ಲ, ಶ್ರೇಣಿ ಇಲ್ಲ, ಒತ್ತಡ ಇಲ್ಲ. ಆಟದ ರೂಪದಲ್ಲೇ ಶ್ರುತಿ ಮತ್ತು ಲಯ ಕಿವಿಗೆ ಇಳಿಯುತ್ತದೆ. ಎಂಟು ವರ್ಷ ದಾಟಿದ ಮೇಲೆ ಮಕ್ಕಳು ಶಾಸ್ತ್ರೀಯ ಬ್ಯಾಚ್‌ಗೆ ಸೇರಬಹುದು.',
+      en:'For ages five to nine. No exams, no grades, no pressure. Pitch and rhythm go into the ear through games rather than drills. After eight, children can move into the classical batch.'
+    },
+    learn:{
+      kn:['ಶ್ರುತಿ ಗುರುತಿಸುವುದು','ಚಪ್ಪಾಳೆಯಲ್ಲಿ ಲಯ','ಕನ್ನಡ ಶಿಶುಗೀತೆ ಮತ್ತು ದೇವರನಾಮ','ಗುಂಪಿನಲ್ಲಿ ಹಾಡುವ ಅಭ್ಯಾಸ'],
+      en:['Recognising pitch by ear','Keeping rhythm by clapping','Kannada children’s songs and devaranama','Singing comfortably in a group']
+    },
+    teacher:{kn:'ರೇಷ್ಮಾ ಬಿ.',en:'Reshma B.'},
+    level:{kn:'ಆರಂಭಿಕರಿಗೆ ಮಾತ್ರ',en:'Beginners only'},
+    age:5, mins:45, week:2, term:3,
+    bring:{kn:['ಏನೂ ಬೇಡ — ಬಂದರೆ ಸಾಕು'],en:['Nothing at all — just turn up']}
+  }
+];
+
+const PATH = [
+  {h:{kn:'ಶ್ರುತಿ',en:'Shruti'},
+   p:{kn:'ತಂಬೂರಿಯ ಮುಂದೆ ಕುಳಿತು ಕಿವಿ ಹೊಂದಿಸುವ ಹಂತ. ಎರಡು ವಾರ ಹಾಡುವುದೇ ಇಲ್ಲ — ಕೇಳುವುದು ಮಾತ್ರ.',
+      en:'Sitting in front of the tanpura until the ear locks on. For a fortnight there is no singing at all, only listening.'}},
+  {h:{kn:'ಸ್ವರ',en:'Swara'},
+   p:{kn:'ಏಳು ಸ್ವರಗಳು ಮತ್ತು ಅವುಗಳ ನಿಖರ ಸ್ಥಾನ. ದಿನದ ಸರಳೆ ವರಸೆಯ ಅಭ್ಯಾಸ ಇಲ್ಲಿಂದ ಶುರು.',
+      en:'The seven notes and exactly where each one sits. The daily sarale drills start here and never really stop.'}},
+  {h:{kn:'ಅಲಂಕಾರ',en:'Alankara'},
+   p:{kn:'ತಾಳದ ಚೌಕಟ್ಟಿನಲ್ಲಿ ಸ್ವರಗಳ ಜೋಡಣೆ. ಲಯ ಎಣಿಕೆಯಿಂದ ಅನುಭವಕ್ಕೆ ಬದಲಾಗುವುದು ಈ ಹಂತದಲ್ಲೇ.',
+      en:'Note patterns inside a taala cycle. This is the stage where rhythm stops being counted and starts being felt.'}},
+  {h:{kn:'ರಾಗ',en:'Raga'},
+   p:{kn:'ರಾಗದ ಸ್ವರೂಪ, ಅದರ ವಿಶಿಷ್ಟ ಸಂಚಾರ, ಮತ್ತು ಮೊದಲ ಪೂರ್ಣ ಕೃತಿ ಅಥವಾ ಬಂದಿಶ್.',
+      en:'The shape of a raga, its characteristic phrases, and your first complete kriti or bandish.'}},
+  {h:{kn:'ವೇದಿಕೆ',en:'Vedike'},
+   p:{kn:'ಪಕ್ಕವಾದ್ಯದೊಂದಿಗೆ ಪ್ರೇಕ್ಷಕರ ಮುಂದೆ ಹಾಡುವುದು. ವರ್ಷಕ್ಕೆ ಎರಡು ಬಾರಿ, ಎಲ್ಲರೂ.',
+      en:'Singing in front of an audience with live accompaniment. Twice a year, everybody performs — no exceptions.'}}
+];
+
+const LEADS = [
+  {i:'ಶ್ರೀ', ci:'S', c:'#0E6F72',
+   n:{kn:'ವಿದ್ವಾನ್ ಶ್ರೀಕಂಠ ಜೋಶಿ',en:'Vidwan Shrikanta Joshi'},
+   r:{kn:'ಸಂಸ್ಥಾಪಕ · ಪ್ರಧಾನ ಗುರು',en:'Founder · Principal teacher'},
+   b:{kn:'ಇಪ್ಪತ್ತೆರಡು ವರ್ಷ ವೇದಿಕೆ ಮತ್ತು ಸ್ಟುಡಿಯೋ ನಡುವೆ. ಗುರುಕುಲ ಪದ್ಧತಿಯಲ್ಲಿ ಹನ್ನೆರಡು ವರ್ಷ ಕಲಿತು, ಆಮೇಲೆ ಮೂರು ಕನ್ನಡ ಚಿತ್ರ ಮತ್ತು ಹದಿನಾಲ್ಕು ನಾಟಕಗಳಿಗೆ ಸಂಗೀತ. ಶಾಸ್ತ್ರ ಬಿಗಿ, ಹಾಡುಗಾರಿಕೆ ಸಡಿಲ — ಇದೇ ಇವರ ಕಲಿಸುವ ಶೈಲಿ.',
+      en:'Twenty-two years between the stage and the studio. Twelve years of gurukula-style study, then scores for three Kannada features and fourteen plays. His teaching holds the grammar tight and lets the singing stay loose.'}},
+  {i:'ಅ', ci:'A', c:'#D2436B',
+   n:{kn:'ಅನನ್ಯಾ ರಾವ್',en:'Ananya Rao'},
+   r:{kn:'ಕೀಬೋರ್ಡ್ · ದಾಖಲಾತಿ ಮತ್ತು ವೇಳಾಪಟ್ಟಿ',en:'Keyboard · Admissions and scheduling'},
+   b:{kn:'ಬ್ಯಾಚ್, ಸಮಯ, ಶುಲ್ಕ, ವೇದಿಕೆ ಕಾರ್ಯಕ್ರಮ — ಎಲ್ಲ ಇವರ ಕೈಯಲ್ಲಿ. ದಾಖಲಾತಿಯ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ. ಜೊತೆಗೆ ಕೀಬೋರ್ಡ್ ಮತ್ತು ಹಾರ್ಮೋನಿಯಂ ತರಗತಿಗಳೂ ಇವರದೇ.',
+      en:'Batches, timings, fees and recital logistics all run through her. Any admission conversation starts here. She also teaches the keyboard and harmonium classes.'}}
+];
+
+const CREW = [
+  {i:'ಪ್ರ', ci:'P', c:'#4C5BC7', n:{kn:'ಪ್ರಶಾಂತ್ ಎಂ.',en:'Prashanth M.'}, r:{kn:'ತಬಲಾ ಮತ್ತು ಗಿಟಾರ್',en:'Tabla and guitar'},
+   b:{kn:'ಲಯವನ್ನು ಬಾಯಲ್ಲಿ ಹೇಳಿಸಿ ಕಲಿಸುವ ಪದ್ಧತಿ ಇವರದು.',en:'Teaches rhythm by making you say it aloud first.'}},
+  {i:'ಭಾ', ci:'B', c:'#EFA038', n:{kn:'ಭಾಗ್ಯಾ ಎಸ್.',en:'Bhagya S.'}, r:{kn:'ಪಿಟೀಲು',en:'Violin'},
+   b:{kn:'ಮೊದಲ ಎರಡು ತಿಂಗಳು ಭಂಗಿ ಮಾತ್ರ — ಬಿಡುವುದಿಲ್ಲ.',en:'Two months on posture alone, and she does not relent.'}},
+  {i:'ರೇ', ci:'R', c:'#0E6F72', n:{kn:'ರೇಷ್ಮಾ ಬಿ.',en:'Reshma B.'}, r:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ',en:'Kids’ Sangeetha'},
+   b:{kn:'ಮಕ್ಕಳಿಗೆ ಪಾಠ ಮಾಡುವುದಿಲ್ಲ, ಆಟ ಆಡಿಸುತ್ತಾರೆ.',en:'Does not drill children — plays games with them instead.'}},
+  {i:'ಕಿ', ci:'K', c:'#D2436B', n:{kn:'ಕಿರಣ್ ಶೆಟ್ಟಿ',en:'Kiran Shetty'}, r:{kn:'ಮೃದಂಗ · ವೇದಿಕೆ ಪಕ್ಕವಾದ್ಯ',en:'Mridangam · Recital accompanist'},
+   b:{kn:'ವರ್ಷದ ಎರಡೂ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ಸಾಥ್ ಇವರದೇ.',en:'Plays behind every student at both annual recitals.'}}
+];
+
+const BATCHES = [
+  {n:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ (೫–೯)',en:'Kids’ Sangeetha (5–9)'}, w:{kn:'ಶನಿ, ಭಾನು · ಬೆಳಿಗ್ಗೆ ೯:೦೦',en:'Sat & Sun · 9:00 am'}, m:{kn:'ನೇರ',en:'In person'}, f:1400, s:'open'},
+  {n:{kn:'ಕರ್ನಾಟಕ ಗಾಯನ — ಆರಂಭಿಕರು',en:'Carnatic vocal — beginners'}, w:{kn:'ಮಂಗಳ, ಗುರು · ಸಂಜೆ ೬:೩೦',en:'Tue & Thu · 6:30 pm'}, m:{kn:'ನೇರ / ಆನ್‌ಲೈನ್',en:'In person / online'}, f:1800, s:'few'},
+  {n:{kn:'ಕರ್ನಾಟಕ ಗಾಯನ — ಮುಂದುವರಿದವರು',en:'Carnatic vocal — continuing'}, w:{kn:'ಮಂಗಳ, ಗುರು · ಸಂಜೆ ೮:೦೦',en:'Tue & Thu · 8:00 pm'}, m:{kn:'ನೇರ',en:'In person'}, f:1800, s:'full'},
+  {n:{kn:'ಹಿಂದೂಸ್ತಾನಿ ಗಾಯನ',en:'Hindustani vocal'}, w:{kn:'ಬುಧ, ಶುಕ್ರ · ಸಂಜೆ ೭:೦೦',en:'Wed & Fri · 7:00 pm'}, m:{kn:'ನೇರ',en:'In person'}, f:1800, s:'open'},
+  {n:{kn:'ಸುಗಮ ಮತ್ತು ಚಿತ್ರಗೀತೆ',en:'Light and film singing'}, w:{kn:'ಶನಿವಾರ · ಸಂಜೆ ೫:೦೦',en:'Saturday · 5:00 pm'}, m:{kn:'ನೇರ / ಆನ್‌ಲೈನ್',en:'In person / online'}, f:2000, s:'few'},
+  {n:{kn:'ಕೀಬೋರ್ಡ್ ಮತ್ತು ಹಾರ್ಮೋನಿಯಂ',en:'Keyboard and harmonium'}, w:{kn:'ಸೋಮ, ಬುಧ · ಸಂಜೆ ೬:೦೦',en:'Mon & Wed · 6:00 pm'}, m:{kn:'ನೇರ',en:'In person'}, f:2000, s:'open'},
+  {n:{kn:'ತಬಲಾ ಮತ್ತು ಲಯ',en:'Tabla and rhythm'}, w:{kn:'ಭಾನುವಾರ · ಬೆಳಿಗ್ಗೆ ೧೧:೦೦',en:'Sunday · 11:00 am'}, m:{kn:'ನೇರ',en:'In person'}, f:1900, s:'open'},
+  {n:{kn:'ಪಿಟೀಲು ಮತ್ತು ಗಿಟಾರ್',en:'Violin and guitar'}, w:{kn:'ಶನಿವಾರ · ಮಧ್ಯಾಹ್ನ ೩:೦೦',en:'Saturday · 3:00 pm'}, m:{kn:'ನೇರ',en:'In person'}, f:2200, s:'few'},
+  {n:{kn:'ಸ್ಟುಡಿಯೋ ಮತ್ತು ಮೈಕ್ ಕೌಶಲ',en:'Studio and mic craft'}, w:{kn:'ಭಾನುವಾರ · ಸಂಜೆ ೪:೦೦',en:'Sunday · 4:00 pm'}, m:{kn:'ನೇರ',en:'In person'}, f:2600, s:'open'}
+];
+
+const VOICES = [
+  {q:{kn:'ಎಂಟು ವರ್ಷ ಸ್ನಾನದ ಮನೆಯಲ್ಲಿ ಹಾಡಿದ್ದೆ. ಇಲ್ಲಿ ಆರು ತಿಂಗಳಲ್ಲಿ ಮೃದಂಗದ ಸಾಥ್‌ನಲ್ಲಿ ವೇದಿಕೆ ಏರಿದೆ.',
+      en:'I sang in the shower for eight years. Six months here and I was on a stage with a mridangam behind me.'},
+   w:{kn:'ಮೇಘನಾ ಆರ್. · ಕರ್ನಾಟಕ ಗಾಯನ, ೨ನೇ ವರ್ಷ',en:'Meghana R. · Carnatic vocal, year two'}},
+  {q:{kn:'ನನ್ನ ಮಗಳಿಗೆ ಎಂಟು ವರ್ಷ. ಇಲ್ಲಿ ಅವಳಿಗೆ ಪಾಠ ಮಾಡುವುದಿಲ್ಲ, ಆಟ ಆಡಿಸುತ್ತಾರೆ — ಆದರೆ ಮನೆಗೆ ಬರುವಾಗ ಶ್ರುತಿ ಹಿಡಿದಿರುತ್ತಾಳೆ.',
+      en:'My daughter is eight. They do not drill her, they play games with her — and she comes home holding pitch.'},
+   w:{kn:'ಪ್ರಶಾಂತ್ ಕೆ. · ಪೋಷಕರು, ಪುಟಾಣಿ ಬ್ಯಾಚ್',en:'Prashanth K. · Parent, kids’ batch'}},
+  {q:{kn:'ಚಿತ್ರಗೀತೆ ಕಲಿಯಲು ಬಂದೆ. ಶಾಸ್ತ್ರೀಯ ಅಭ್ಯಾಸವನ್ನೂ ಪ್ರೀತಿಸಿ ಹೊರಟೆ. ಇದೇ ಇಲ್ಲಿನ ಜಾಣತನ.',
+      en:'I came for film songs and left loving the classical drills. That is the trick of the place.'},
+   w:{kn:'ಅನುಷಾ ಡಿ. · ಸುಗಮ ಸಂಗೀತ, ೧ನೇ ವರ್ಷ',en:'Anusha D. · Light music, year one'}}
+];
+
+const SCHOOL_WA = '919845000000';
+const SCHOOL_MAIL = 'namaskara@alaapsangeethashale.in';
+
+const REACH = [
+  {ic:'M4 4h16v16H4zM4 7l8 6 8-6', k:{kn:'ಇ-ಮೇಲ್',en:'Email'}, v:SCHOOL_MAIL, href:'mailto:'+SCHOOL_MAIL},
+  {ic:'M22 16.9v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 18.6 18.6 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 4.8 3h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L9 10.7a15 15 0 0 0 5.7 5.7l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z',
+   k:{kn:'ದಾಖಲಾತಿ (ಅನನ್ಯಾ)',en:'Admissions (Ananya)'}, v:'+91 98450 00000', href:'tel:+919845000000'},
+  {ic:'M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7ZM12 11.5A2.5 2.5 0 1 0 12 6.5a2.5 2.5 0 0 0 0 5Z',
+   k:{kn:'ಶಾಲೆಯ ವಿಳಾಸ',en:'The school'}, v:{kn:'೨ನೇ ಮಹಡಿ, ೩೦ನೇ ಅಡ್ಡರಸ್ತೆ, ಜಯನಗರ ೪ನೇ ಬ್ಲಾಕ್',en:'2nd floor, 30th Cross, Jayanagar 4th Block'}, href:'#'},
+  {ic:'M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z',
+   k:{kn:'ಕಚೇರಿ ಸಮಯ',en:'Front desk'}, v:{kn:'ಸೋಮ–ಶನಿ · ಬೆಳಿಗ್ಗೆ ೧೦ – ರಾತ್ರಿ ೮',en:'Mon–Sat · 10 am – 8 pm'}, href:'#'}
+];
+
+const SOCIAL = [
+  {l:'YouTube', href:'#', p:'M23 12s0-3.9-.5-5.8a3 3 0 0 0-2.1-2.1C18.5 3.6 12 3.6 12 3.6s-6.5 0-8.4.5A3 3 0 0 0 1.5 6.2C1 8.1 1 12 1 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 8.4.5 8.4.5s6.5 0 8.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8ZM9.8 15.5v-7l6.1 3.5-6.1 3.5Z'},
+  {l:'Instagram', href:'#', p:'M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.8-.1Zm0 3.3a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm0 10.7a4.2 4.2 0 1 1 0-8.4 4.2 4.2 0 0 1 0 8.4Zm6.8-11a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z'},
+  {l:'WhatsApp', href:'https://wa.me/'+SCHOOL_WA, p:'M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.1c-.2.7-1.3 1.3-1.9 1.3-.5 0-1.1.2-3.6-.8-3-1.3-4.9-4.4-5-4.6-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.9 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.2.1.4 0 .5-.1l.8-1c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.1.1.6-.1 1.3Z'},
+  {l:'Facebook', href:'#', p:'M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z'}
+];
+
+const SWARAS = [
+  {g:'ಸ',  f:261.63, kn:'ಷಡ್ಜ',   en:'Shadja'},
+  {g:'ರಿ', f:294.33, kn:'ರಿಷಭ',   en:'Rishabha'},
+  {g:'ಗ',  f:327.04, kn:'ಗಾಂಧಾರ', en:'Gandhara'},
+  {g:'ಮ',  f:348.84, kn:'ಮಧ್ಯಮ',  en:'Madhyama'},
+  {g:'ಪ',  f:392.45, kn:'ಪಂಚಮ',   en:'Panchama'},
+  {g:'ದ',  f:436.05, kn:'ಧೈವತ',   en:'Dhaivata'},
+  {g:'ನಿ', f:490.56, kn:'ನಿಷಾದ',  en:'Nishada'},
+  {g:'ಸ̇', f:523.26, kn:'ತಾರ ಷಡ್ಜ',en:'Upper Shadja'}
+];
+
+/* ═══════════════════════════════════════════════════════════
+   ENGINE
+   ═══════════════════════════════════════════════════════════ */
+let lang = 'en';
+let filter = 'all';
+const KN_D = '೦೧೨೩೪೫೬೭೮೯';
+const n = v => lang === 'kn' ? String(v).replace(/[0-9]/g, d => KN_D[+d]) : String(v);
+const L = o => (o && typeof o === 'object' && !Array.isArray(o)) ? (o[lang] ?? o.en) : o;
+const t = k => L(STR[k]) || '';
+const esc = s => String(s).replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+const money = v => '₹' + n(v.toLocaleString('en-IN'));
+
+function paintStatic(){
+  document.documentElement.lang = lang;
+  document.documentElement.dataset.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = t(node.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(node => { node.innerHTML = t(node.dataset.i18nHtml); });
+  const pv = document.querySelector('#preview-bar span');
+  if (pv) pv.innerHTML = t('preview');
+  document.querySelectorAll('[data-lang-btn]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.langBtn === lang)));
+  document.title = lang === 'kn' ? 'ಆಲಾಪ್ ಸಂಗೀತ ಶಾಲೆ · ಬೆಂಗಳೂರು' : 'Alaap Sangeetha Shale · Music School, Bengaluru';
+}
+
+function paintTicker(){
+  const row = NOTICES.map(u => `<span class="tick"><span class="dot"></span><b>${esc(L(u))}</b></span>`).join('');
+  document.getElementById('ticker').innerHTML = row + row;
+}
+
+function paintLedger(){
+  document.getElementById('ledger').innerHTML = STR.ledger.map(r =>
+    `<div class="ledger-row"><span class="ledger-n">${n(r.n)}${r.suffix||''}</span><span class="ledger-k">${esc(L(r))}</span></div>`
+  ).join('');
+}
+
+function paintRungs(){
+  const box = document.getElementById('rungs');
+  box.innerHTML = '';
+  SWARAS.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'rung';
+    b.style.height = (46 + i * 7.7) + '%';
+    b.style.background = `linear-gradient(180deg,#fff,${['#FBE7C6','#F7EBD6','#E7EEFB','#DDEDEC','#E4F0EF','#FBE2EA','#F9EAD5','#DCEDEC'][i]})`;
+    b.setAttribute('aria-label', L(s));
+    b.innerHTML = `<span class="g">${s.g}</span><span class="s">${esc(L(s))}</span>`;
+    b.onclick = () => pluck(s.f, b);
+    box.appendChild(b);
+  });
+}
+
+function paintChips(){
+  const box = document.getElementById('chips');
+  box.innerHTML = '';
+  [{id:'all'}, ...CATS].forEach(c => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip';
+    b.textContent = c.id === 'all' ? t('courses.all') : L(c);
+    b.setAttribute('aria-pressed', String(filter === c.id));
+    b.onclick = () => { filter = c.id; paintChips(); paintCourses(); };
+    box.appendChild(b);
+  });
+}
+
+function paintCourses(){
+  const grid = document.getElementById('courseGrid');
+  grid.innerHTML = '';
+  COURSES.filter(c => filter === 'all' || c.cat === filter).forEach(c => {
+    const cat = CATS.find(x => x.id === c.cat);
+    const card = document.createElement('button');
+    card.type = 'button'; card.className = 'course';
+    card.innerHTML = `
+      <span class="plate" style="background:linear-gradient(150deg,${c.hue[0]},${c.hue[1]})">
+        <span class="plate-sw">${c.sw}</span>
+        <span class="plate-t display">${esc(L(c.t))}</span>
+      </span>
+      <span class="course-meta">
+        <span class="tagline">${esc(L(c.line))}</span>
+        <span class="course-foot">
+          <span class="pill">${esc(L(cat))}</span>
+          <span class="more">${n(c.mins)} ${esc(t('u.min'))} × ${n(c.week)} →</span>
+        </span>
+      </span>`;
+    card.onclick = () => openSheet(COURSES.indexOf(c));
+    grid.appendChild(card);
+  });
+}
+
+function paintPath(){
+  document.getElementById('rail').innerHTML = PATH.map((s, i) => `
+    <div class="stop">
+      <div class="stop-n">${n(String(i + 1).padStart(2, '0'))}</div>
+      <h3>${esc(L(s.h))}</h3>
+      <p>${esc(L(s.p))}</p>
+    </div>`).join('');
+}
+
+function personCard(p){
+  return `<div class="person">
+    <div class="person-top">
+      <span class="avatar" style="background:${p.c}">${lang === 'kn' ? p.i : p.ci}</span>
+      <span>
+        <h3>${esc(L(p.n))}</h3>
+        <span class="role">${esc(L(p.r))}</span>
+      </span>
+    </div>
+    <p>${esc(L(p.b))}</p>
+  </div>`;
+}
+
+function paintTeam(){
+  document.getElementById('leads').innerHTML = LEADS.map(personCard).join('');
+  document.getElementById('crew').innerHTML = CREW.map(personCard).join('');
+}
+
+function paintBatches(){
+  document.getElementById('batchBody').innerHTML = BATCHES.map(b => `
+    <tr>
+      <td class="name">${esc(L(b.n))}</td>
+      <td>${esc(L(b.w))}</td>
+      <td>${esc(L(b.m))}</td>
+      <td class="fee">${money(b.f)} <span style="color:var(--ink2);font-weight:400">${esc(L(STR.perMonth))}</span></td>
+      <td><span class="seats ${b.s}">${esc(t('seats.' + b.s))}</span></td>
+    </tr>`).join('');
+}
+
+function paintVoices(){
+  document.getElementById('voiceGrid').innerHTML = VOICES.map(v => `
+    <div class="voice">
+      <div class="voice-mark">“</div>
+      <p>${esc(L(v.q))}</p>
+      <div class="who">${esc(L(v.w))}</div>
+    </div>`).join('');
+}
+
+function paintReach(){
+  document.getElementById('reach').innerHTML = REACH.map(r => `
+    <a href="${r.href}">
+      <svg viewBox="0 0 24 24"><path d="${r.ic}"/></svg>
+      <span><span class="k">${esc(L(r.k))}</span><span class="v">${esc(L(r.v))}</span></span>
+    </a>`).join('');
+  document.getElementById('social').innerHTML = SOCIAL.map(s => `
+    <a href="${s.href}" aria-label="${s.l}"><svg viewBox="0 0 24 24"><path d="${s.p}"/></svg></a>`).join('');
+}
+
+function fillSelect(id, list, extra){
+  const sel = document.getElementById(id);
+  const keep = sel.selectedIndex;
+  const items = list.map(o => `<option>${esc(L(o))}</option>`).join('');
+  sel.innerHTML = items + (extra ? `<option>${esc(L(extra))}</option>` : '');
+  if (keep > -1) sel.selectedIndex = keep;
+}
+function paintForm(){
+  fillSelect('f-course', COURSES.map(c => c.t), STR.stillDeciding);
+  fillSelect('f-mode', STR.modeOptions);
+  fillSelect('f-exp', STR.expOptions);
+}
+
+/* ── course detail sheet ────────────────────────────────── */
+const sheet = document.getElementById('sheet');
+let lastFocus = null;
+
+function openSheet(idx){
+  const c = COURSES[idx];
+  const cat = CATS.find(x => x.id === c.cat);
+  lastFocus = document.activeElement;
+  document.getElementById('sheetHero').innerHTML = `
+    <div style="background:linear-gradient(150deg,${c.hue[0]},${c.hue[1]});margin:-34px -34px 22px;padding:38px 34px 30px;border-radius:28px 28px 0 0">
+      <span class="pill" style="background:rgba(255,255,255,.72);color:var(--ink)">${esc(L(cat))}</span>
+      <h2 class="display" id="sheetTitle">${esc(L(c.t))}</h2>
+      <p style="margin:0;color:rgba(22,51,44,.72);font-size:18px">${esc(L(c.line))}</p>
+    </div>`;
+  document.getElementById('sheetBody').innerHTML = `
+    <dl class="facts">
+      <div><dt>${esc(t('f.teacher'))}</dt><dd>${esc(L(c.teacher))}</dd></div>
+      <div><dt>${esc(t('f.level'))}</dt><dd>${esc(L(c.level))}</dd></div>
+      <div><dt>${esc(t('f.age'))}</dt><dd>${n(c.age)} ${esc(t('u.yrs'))}</dd></div>
+      <div><dt>${esc(t('f.class'))}</dt><dd>${n(c.mins)} ${esc(t('u.min'))}</dd></div>
+      <div><dt>${esc(t('f.week'))}</dt><dd>${n(c.week)} ${esc(t('u.classes'))}</dd></div>
+      <div><dt>${esc(t('f.term'))}</dt><dd>${n(c.term)} ${esc(t('u.months'))}</dd></div>
+    </dl>
+    <h3 class="display" style="font-size:22px;margin:0 0 8px">${esc(t('sheet.about'))}</h3>
+    <p style="margin:0 0 24px;color:var(--ink2);font-size:17px">${esc(L(c.about))}</p>
+    <h3 class="display" style="font-size:22px;margin:0 0 12px">${esc(t('sheet.learn'))}</h3>
+    <ul class="syl">${L(c.learn).map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <h3 class="display" style="font-size:22px;margin:0 0 4px">${esc(t('sheet.bring'))}</h3>
+    <div class="bring">${L(c.bring).map(x => `<span>${esc(x)}</span>`).join('')}</div>`;
+  sheet.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  sheet.querySelector('.close').focus();
+}
+function closeSheet(){
+  sheet.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+sheet.querySelectorAll('[data-close]').forEach(x => x.onclick = closeSheet);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('open')) closeSheet(); });
+
+/* ── audio: swaras and drone ────────────────────────────── */
+let AC = null, droneNodes = null;
+function ctx(){ if (!AC) AC = new (window.AudioContext || window.webkitAudioContext)(); return AC; }
+function pluck(freq, el){
+  const a = ctx(), now = a.currentTime, g = a.createGain();
+  g.connect(a.destination);
+  g.gain.setValueAtTime(0.0001, now);
+  g.gain.exponentialRampToValueAtTime(0.2, now + 0.02);
+  g.gain.exponentialRampToValueAtTime(0.0001, now + 1.7);
+  [['triangle', 1, 0.6], ['sine', 2, 0.16]].forEach(([type, mult, amp]) => {
+    const o = a.createOscillator(), og = a.createGain();
+    o.type = type; o.frequency.value = freq * mult; og.gain.value = amp;
+    o.connect(og); og.connect(g); o.start(now); o.stop(now + 1.8);
+  });
+  if (el){ el.classList.add('lit'); setTimeout(() => el.classList.remove('lit'), 300); }
+}
+document.getElementById('btnAaro').onclick = () => {
+  const rungs = document.querySelectorAll('.rung');
+  SWARAS.forEach((s, i) => setTimeout(() => pluck(s.f, rungs[i]), i * 230));
+};
+document.getElementById('btnDrone').onclick = function(){
+  const a = ctx();
+  if (droneNodes){
+    droneNodes.g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + 0.6);
+    droneNodes.osc.forEach(o => o.stop(a.currentTime + 0.7));
+    droneNodes = null;
+    this.setAttribute('aria-pressed', 'false');
+    return;
+  }
+  const g = a.createGain();
+  g.gain.value = 0.0001; g.connect(a.destination);
+  g.gain.exponentialRampToValueAtTime(0.07, a.currentTime + 1.2);
+  const osc = [130.81, 261.63, 392.45].map(f => {
+    const o = a.createOscillator(), og = a.createGain();
+    o.type = 'sine'; o.frequency.value = f; og.gain.value = 0.4;
+    o.connect(og); og.connect(g); o.start(); return o;
+  });
+  droneNodes = {g, osc};
+  this.setAttribute('aria-pressed', 'true');
+};
+
+/* ── enrolment form ─────────────────────────────────────── */
+function compose(){
+  const v = id => document.getElementById(id).value.trim();
+  const S = id => document.getElementById(id).selectedOptions[0].textContent;
+  const note = document.getElementById('formNote');
+  document.querySelectorAll('.bad').forEach(e => e.classList.remove('bad'));
+  const fail = (id, key) => {
+    const f = document.getElementById(id);
+    f.classList.add('bad'); f.focus();
+    note.className = 'form-note bad'; note.textContent = t(key);
+    return null;
+  };
+  if (!v('f-name'))  return fail('f-name', 'form.needName');
+  if (!v('f-age'))   return fail('f-age', 'form.needAge');
+  if (!v('f-phone')) return fail('f-phone', 'form.needPhone');
+  if (!/^[0-9+\s-]{10,15}$/.test(v('f-phone'))) return fail('f-phone', 'form.badPhone');
+
+  note.className = 'form-note good';
+  note.textContent = t('form.opened');
+  const lbl = k => t(k);
+  return [
+    (lang === 'kn' ? 'ಹೊಸ ದಾಖಲಾತಿ ವಿನಂತಿ' : 'New enrolment enquiry') + ' — ' + t('brand'), '',
+    `${lbl('form.name')}: ${v('f-name')}`,
+    `${lbl('form.age')}: ${v('f-age')}`,
+    `${lbl('form.phone')}: ${v('f-phone')}`,
+    `${lbl('form.mail')}: ${v('f-mail') || '—'}`,
+    `${lbl('form.course')}: ${S('f-course')}`,
+    `${lbl('form.mode')}: ${S('f-mode')}`,
+    `${lbl('form.exp')}: ${S('f-exp')}`,
+    `${lbl('form.msg')}: ${v('f-msg') || '—'}`
+  ].join('\n');
+}
+document.getElementById('sendWa').onclick = () => {
+  const m = compose();
+  if (m) window.open(`https://wa.me/${SCHOOL_WA}?text=${encodeURIComponent(m)}`, '_blank');
+};
+document.getElementById('sendMail').onclick = () => {
+  const m = compose();
+  if (!m) return;
+  const subj = (lang === 'kn' ? 'ದಾಖಲಾತಿ' : 'Enrolment') + ' — ' + document.getElementById('f-name').value.trim();
+  window.location.href = `mailto:${SCHOOL_MAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(m)}`;
+};
+
+/* ── language, nav, scroll ──────────────────────────────── */
+function setLang(next){
+  lang = next;
+  if (sheet.classList.contains('open')) closeSheet();
+  render();
+}
+document.querySelectorAll('[data-lang-btn]').forEach(b => b.onclick = () => setLang(b.dataset.langBtn));
+
+const nav = document.getElementById('nav'), burger = document.getElementById('burger');
+burger.onclick = () => {
+  const open = nav.classList.toggle('open');
+  burger.setAttribute('aria-expanded', String(open));
+};
+nav.querySelectorAll('a').forEach(a => a.onclick = () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+
+const toTop = document.getElementById('toTop');
+toTop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+addEventListener('scroll', () => toTop.classList.toggle('on', scrollY > 700));
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.rise').forEach(x => io.observe(x));
+
+function render(){
+  paintStatic(); paintTicker(); paintLedger(); paintRungs(); paintChips(); paintCourses();
+  paintPath(); paintTeam(); paintBatches(); paintVoices(); paintReach(); paintForm();
+}
+render();
+</script>
+</body>
+</html>
