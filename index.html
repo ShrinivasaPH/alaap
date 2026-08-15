@@ -11,19 +11,19 @@
 <style>
 /* ── tokens ─────────────────────────────────────────────── */
 :root{
-  --hall:#FCEEE6;         /* warm blush — concert-hall paper */
+  --hall:#EBF1F7;         /* pale morning blue */
   --paper:#FFFFFF;
-  --ink:#3B1523;          /* deep plum-maroon ink */
-  --ink2:#7A5261;
-  --brand:#A81D45;        /* kumkum — brand */
-  --brand-soft:#FAE0E7;
-  --saffron:#F2A20C;      /* marigold */
-  --peacock:#0C7D82;      /* peacock */
-  --indigo:#4A50B8;       /* cool third */
-  --line:#F2DCD3;
-  --shadow-s:0 2px 6px -2px rgba(59,21,35,.12);
-  --shadow-m:0 18px 38px -24px rgba(59,21,35,.38);
-  --shadow-l:0 34px 60px -30px rgba(59,21,35,.32);
+  --ink:#17224A;          /* deep indigo-navy ink */
+  --ink2:#5A6488;
+  --brand:#2F3E9E;        /* indigo — brand */
+  --brand-soft:#E2E6FA;
+  --saffron:#F0A517;      /* marigold */
+  --peacock:#0E8074;      /* peacock green */
+  --coral:#E2503C;        /* warm third */
+  --line:#DCE5F0;
+  --shadow-s:0 2px 6px -2px rgba(23,34,74,.12);
+  --shadow-m:0 18px 38px -24px rgba(23,34,74,.38);
+  --shadow-l:0 34px 60px -30px rgba(23,34,74,.32);
   --r:22px;
   --r-s:12px;
   --wrap:1140px;
@@ -76,14 +76,14 @@ html[data-lang="kn"] .eyebrow{letter-spacing:.05em; text-transform:none; font-si
 /* ── header ─────────────────────────────────────────────── */
 header{
   position:sticky; top:0; z-index:60;
-  background:rgba(252,238,230,.87); backdrop-filter:blur(14px) saturate(1.4);
+  background:rgba(235,241,247,.88); backdrop-filter:blur(14px) saturate(1.4);
   border-bottom:1px solid var(--line);
 }
 .bar{display:flex; align-items:center; gap:20px; height:78px}
 .logo{display:flex; align-items:center; gap:11px; flex:none}
 .logo-badge{
   width:46px; height:46px; border-radius:14px; flex:none;
-  background:linear-gradient(150deg,var(--brand),#C93A63 52%,var(--saffron));
+  background:linear-gradient(150deg,var(--brand),#4A5AC8 52%,var(--saffron));
   display:grid; place-items:center; box-shadow:var(--shadow-s);
 }
 .logo-badge svg{width:28px; height:28px}
@@ -145,7 +145,7 @@ nav a:hover{color:var(--brand); background:var(--brand-soft)}
   background:var(--saffron); opacity:.34; border-radius:99px; z-index:-1;
 }
 .quote{max-width:610px; margin:22px auto 0; font-size:19px; color:var(--ink2); padding:0 30px; position:relative}
-.quote::before,.quote::after{content:"“"; font-family:'Instrument Serif',serif; font-size:46px; color:var(--peacock); position:absolute; top:-4px; left:0; line-height:1; opacity:.6}
+.quote::before,.quote::after{content:"“"; font-family:'Instrument Serif',serif; font-size:46px; color:var(--coral); position:absolute; top:-4px; left:0; line-height:1; opacity:.6}
 .quote::after{content:"”"; left:auto; right:0}
 .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:30px}
 .btn{
@@ -183,8 +183,8 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 .rung .s{font-size:10.5px; font-weight:600; letter-spacing:.05em; color:var(--ink2); margin-top:7px; text-align:center; padding:0 3px}
 .rung:hover{transform:translateY(-5px); box-shadow:var(--shadow-l)}
 .rung.lit{filter:brightness(1.06); transform:translateY(-7px)}
-.rung{background:linear-gradient(180deg,#fff,#FDF0E6)}
-.rung.v{background:linear-gradient(180deg,#fff,var(--brand-soft)); border-color:#EFC9D4}
+.rung{background:linear-gradient(180deg,#fff,#F1F5FC)}
+.rung.v{background:linear-gradient(180deg,#fff,var(--brand-soft)); border-color:#C6CEF0}
 .rung.v .g{color:var(--brand)}
 .rung .s{font-family:'JetBrains Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.02em; color:var(--ink2)}
 .rung .g{position:relative; display:inline-block; padding:.34em .06em 0}
@@ -220,7 +220,7 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 @keyframes slide{to{transform:translateX(-50%)}}
 .tick{display:flex; align-items:center; gap:10px; padding:15px 26px; font-size:15.5px; white-space:nowrap; color:var(--ink2)}
 .tick b{color:var(--ink); font-weight:600}
-.tick .dot{width:6px; height:6px; border-radius:50%; background:var(--peacock); flex:none}
+.tick .dot{width:6px; height:6px; border-radius:50%; background:var(--coral); flex:none}
 
 /* ── about + ledger ─────────────────────────────────────── */
 .about-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:start}
@@ -249,7 +249,7 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 .course:hover{transform:translateY(-6px) rotate(-.4deg); box-shadow:var(--shadow-l)}
 .plate{aspect-ratio:4/2.9; padding:22px; display:flex; flex-direction:column; justify-content:space-between; position:relative}
 .plate::after{content:""; position:absolute; inset:0; opacity:.5; background:radial-gradient(circle at 80% 14%,rgba(255,255,255,.85),transparent 56%)}
-.plate-sw{font-family:'Noto Serif Kannada',serif; font-size:30px; font-weight:700; color:rgba(59,21,35,.34); position:relative; z-index:1; line-height:1}
+.plate-sw{font-family:'Noto Serif Kannada',serif; font-size:30px; font-weight:700; color:rgba(23,34,74,.34); position:relative; z-index:1; line-height:1}
 .plate-t{font-size:27px; margin:0; position:relative; z-index:1; max-width:13ch}
 .course-meta{padding:18px 22px 22px; display:flex; flex-direction:column; gap:9px; flex:1}
 .tagline{font-size:15px; color:var(--ink2); flex:1}
@@ -259,13 +259,13 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 
 /* ── the path (five stages) ─────────────────────────────── */
 .rail{position:relative; padding-left:38px; margin-top:6px}
-.rail::before{content:""; position:absolute; left:9px; top:10px; bottom:10px; width:2px; background:linear-gradient(var(--brand),var(--indigo),var(--peacock),var(--saffron)); border-radius:2px; opacity:.42}
+.rail::before{content:""; position:absolute; left:9px; top:10px; bottom:10px; width:2px; background:linear-gradient(var(--brand),var(--coral),var(--peacock),var(--saffron)); border-radius:2px; opacity:.42}
 .stop{position:relative; padding:0 0 34px}
 .stop::before{
   content:""; position:absolute; left:-38px; top:6px; width:20px; height:20px; border-radius:50%;
   background:var(--paper); border:3px solid var(--brand);
 }
-.stop:nth-child(2)::before{border-color:var(--indigo)}
+.stop:nth-child(2)::before{border-color:var(--coral)}
 .stop:nth-child(3)::before{border-color:var(--peacock)}
 .stop:nth-child(4)::before{border-color:var(--saffron)}
 .stop:nth-child(5)::before{border-color:var(--brand)}
@@ -302,14 +302,14 @@ tbody tr:hover td{background:var(--hall)}
 td.name{font-weight:600}
 td.fee{color:var(--brand); font-weight:700; white-space:nowrap}
 .seats{font-size:12.5px; font-weight:600; padding:3px 10px; border-radius:99px; white-space:nowrap}
-.seats.open{background:#D9EFE6; color:#0F6B45}
-.seats.few{background:#FDEAC9; color:#8A5200}
-.seats.full{background:#F6DCE2; color:#8E1A3B}
+.seats.open{background:#D8EFE7; color:#0B6B4E}
+.seats.few{background:#FCE9C4; color:#8A5600}
+.seats.full{background:#FBDCD1; color:#A33418}
 
 /* ── voices ─────────────────────────────────────────────── */
 .voices{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
 .voice{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-s)}
-.voice-mark{font-family:'Instrument Serif',serif; font-size:54px; line-height:.6; color:var(--peacock); opacity:.5}
+.voice-mark{font-family:'Instrument Serif',serif; font-size:54px; line-height:.6; color:var(--coral); opacity:.55}
 .voice p{margin:10px 0 16px; font-size:16.5px}
 .voice .who{font-size:14px; color:var(--ink2); font-weight:600}
 
@@ -324,11 +324,11 @@ td.fee{color:var(--brand); font-weight:700; white-space:nowrap}
 }
 .field textarea{min-height:104px; resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--brand); box-shadow:0 0 0 4px var(--brand-soft); background:var(--paper)}
-.field input.bad,.field select.bad{border-color:var(--brand); box-shadow:0 0 0 4px var(--brand-soft)}
+.field input.bad,.field select.bad{border-color:var(--coral); box-shadow:0 0 0 4px #FBDCD1}
 .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
 .form-btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
 .form-note{font-size:14px; color:var(--ink2); margin:14px 0 0}
-.form-note.bad{color:var(--brand); font-weight:600}
+.form-note.bad{color:var(--coral); font-weight:600}
 .form-note.good{color:var(--brand); font-weight:600}
 .reach{display:flex; flex-direction:column; gap:13px; margin-top:22px}
 .reach a{display:flex; gap:13px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-s); padding:14px 16px; box-shadow:var(--shadow-s); transition:.2s var(--ease)}
@@ -349,10 +349,10 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 /* ── detail sheet ───────────────────────────────────────── */
 .sheet{position:fixed; inset:0; z-index:100; display:none; padding:26px}
 .sheet.open{display:grid; place-items:center}
-.veil{position:absolute; inset:0; background:rgba(59,21,35,.44); backdrop-filter:blur(4px)}
+.veil{position:absolute; inset:0; background:rgba(23,34,74,.44); backdrop-filter:blur(4px)}
 .sheet-card{
   position:relative; background:var(--paper); border-radius:28px; max-width:760px; width:100%;
-  max-height:88vh; overflow-y:auto; box-shadow:0 50px 90px -40px rgba(59,21,35,.6);
+  max-height:88vh; overflow-y:auto; box-shadow:0 50px 90px -40px rgba(23,34,74,.6);
   animation:pop .3s var(--ease);
 }
 @keyframes pop{from{opacity:0; transform:translateY(18px) scale(.98)}}
@@ -449,8 +449,8 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
           </g>
           <path d="M20 3.2c1 0 1.7.8 1.7 1.8s-.7 1.7-1.7 1.7-1.7-.7-1.7-1.7.7-1.8 1.7-1.8Z" fill="#fff"/>
           <path d="M20 22.6c4.6 0 8 3.7 8 8.3s-3.6 7.9-8 7.9-8-3.4-8-7.9 3.4-8.3 8-8.3Z" fill="#fff"/>
-          <ellipse cx="20" cy="31.4" rx="3.1" ry="3.1" fill="#A81D45"/>
-          <path d="M13.6 27.4c1.2-2.2 3.3-3.6 5.6-3.9-2.4 1.3-4.2 2.9-5.6 3.9Z" fill="rgba(168,29,69,.28)"/>
+          <ellipse cx="20" cy="31.4" rx="3.1" ry="3.1" fill="#2F3E9E"/>
+          <path d="M13.6 27.4c1.2-2.2 3.3-3.6 5.6-3.9-2.4 1.3-4.2 2.9-5.6 3.9Z" fill="rgba(47,62,158,.28)"/>
         </svg>
       </span>
       <span>
@@ -486,13 +486,13 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
       <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMin slice">
         <defs>
           <radialGradient id="d1" cx=".5" cy="0" r=".8">
-            <stop offset="0" stop-color="#F2A20C" stop-opacity=".5"/><stop offset="1" stop-color="#F2A20C" stop-opacity="0"/>
+            <stop offset="0" stop-color="#F0A517" stop-opacity=".5"/><stop offset="1" stop-color="#F0A517" stop-opacity="0"/>
           </radialGradient>
           <radialGradient id="d2" cx=".5" cy="0" r=".8">
-            <stop offset="0" stop-color="#4A50B8" stop-opacity=".38"/><stop offset="1" stop-color="#4A50B8" stop-opacity="0"/>
+            <stop offset="0" stop-color="#2F3E9E" stop-opacity=".38"/><stop offset="1" stop-color="#2F3E9E" stop-opacity="0"/>
           </radialGradient>
           <radialGradient id="d3" cx=".5" cy="0" r=".8">
-            <stop offset="0" stop-color="#0C7D82" stop-opacity=".34"/><stop offset="1" stop-color="#0C7D82" stop-opacity="0"/>
+            <stop offset="0" stop-color="#0E8074" stop-opacity=".34"/><stop offset="1" stop-color="#0E8074" stop-opacity="0"/>
           </radialGradient>
         </defs>
         <g style="filter:blur(10px)">
@@ -500,7 +500,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
           <ellipse cx="300" cy="70" rx="300" ry="230" fill="url(#d2)"/>
           <ellipse cx="920" cy="60" rx="300" ry="230" fill="url(#d3)"/>
         </g>
-        <g stroke="#A81D45" stroke-opacity=".12" stroke-width="1">
+        <g stroke="#2F3E9E" stroke-opacity=".12" stroke-width="1">
           <path d="M0 300h1200M0 344h1200M0 388h1200M0 432h1200"/>
         </g>
       </svg>
@@ -890,7 +890,7 @@ const COURSES = [
     bring:{kn:['ಸ್ವರಲಿಪಿ ಪುಸ್ತಕ (ಶಾಲೆಯಿಂದ)','ತಂಬೂರಿ ಆ್ಯಪ್ ಇದ್ದರೆ ಒಳ್ಳೆಯದು'],en:['Notation book (given here)','A tanpura app on your phone helps']}
   },
   {
-    cat:'film', sw:'ಗ', hue:['#FBD8E1','#F3A2BB'],
+    cat:'film', sw:'ಗ', hue:['#FBDCD1','#F4B49B'],
     t:{kn:'ಸುಗಮ ಮತ್ತು ಚಿತ್ರಗೀತೆ',en:'Light and film singing'},
     line:{kn:'ಭಾವಗೀತೆ, ಚಿತ್ರಗೀತೆ, ಟ್ರ್ಯಾಕ್‌ಗೆ ಹಾಡುವುದು.',en:'Bhavageete, film songs, singing to a track.'},
     about:{
@@ -958,7 +958,7 @@ const COURSES = [
     bring:{kn:['ಮನೆಯಲ್ಲಿ ಅಭ್ಯಾಸಕ್ಕೆ ಒಂದು ಜೋಡಿ ತಬಲಾ'],en:['A pair of tabla at home for practice']}
   },
   {
-    cat:'instrument', sw:'ನಿ', hue:['#FBD8E1','#F0ACC1'],
+    cat:'instrument', sw:'ನಿ', hue:['#FBDCD1','#F2AE94'],
     t:{kn:'ಪಿಟೀಲು',en:'Violin'},
     line:{kn:'ಭಂಗಿ, ಬೆರಳಿಕೆ, ಗಮಕ, ಕೃತಿಗೆ ಸಾಥ್.',en:'Posture, fingering, gamaka, accompaniment.'},
     about:{
@@ -1029,12 +1029,12 @@ const PATH = [
 ];
 
 const LEADS = [
-  {i:'ಶ್ರೀ', ci:'S', c:'#A81D45',
+  {i:'ಶ್ರೀ', ci:'S', c:'#2F3E9E',
    n:{kn:'ವಿದ್ವಾನ್ ಶ್ರೀಕಂಠ ಜೋಶಿ',en:'Vidwan Shrikanta Joshi'},
    r:{kn:'ಸಂಸ್ಥಾಪಕ · ಪ್ರಧಾನ ಗುರು',en:'Founder · Principal teacher'},
    b:{kn:'ಇಪ್ಪತ್ತೆರಡು ವರ್ಷ ವೇದಿಕೆ ಮತ್ತು ಸ್ಟುಡಿಯೋ ನಡುವೆ. ಗುರುಕುಲ ಪದ್ಧತಿಯಲ್ಲಿ ಹನ್ನೆರಡು ವರ್ಷ ಕಲಿತು, ಆಮೇಲೆ ಮೂರು ಕನ್ನಡ ಚಿತ್ರ ಮತ್ತು ಹದಿನಾಲ್ಕು ನಾಟಕಗಳಿಗೆ ಸಂಗೀತ. ಶಾಸ್ತ್ರ ಬಿಗಿ, ಹಾಡುಗಾರಿಕೆ ಸಡಿಲ — ಇದೇ ಇವರ ಕಲಿಸುವ ಶೈಲಿ.',
       en:'Twenty-two years between the stage and the studio. Twelve years of gurukula-style study, then scores for three Kannada features and fourteen plays. His teaching holds the grammar tight and lets the singing stay loose.'}},
-  {i:'ಅ', ci:'A', c:'#0C7D82',
+  {i:'ಅ', ci:'A', c:'#0E8074',
    n:{kn:'ಅನನ್ಯಾ ರಾವ್',en:'Ananya Rao'},
    r:{kn:'ಕೀಬೋರ್ಡ್ · ದಾಖಲಾತಿ ಮತ್ತು ವೇಳಾಪಟ್ಟಿ',en:'Keyboard · Admissions and scheduling'},
    b:{kn:'ಬ್ಯಾಚ್, ಸಮಯ, ಶುಲ್ಕ, ವೇದಿಕೆ ಕಾರ್ಯಕ್ರಮ — ಎಲ್ಲ ಇವರ ಕೈಯಲ್ಲಿ. ದಾಖಲಾತಿಯ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ. ಜೊತೆಗೆ ಕೀಬೋರ್ಡ್ ಮತ್ತು ಹಾರ್ಮೋನಿಯಂ ತರಗತಿಗಳೂ ಇವರದೇ.',
@@ -1042,13 +1042,13 @@ const LEADS = [
 ];
 
 const CREW = [
-  {i:'ಪ್ರ', ci:'P', c:'#4A50B8', n:{kn:'ಪ್ರಶಾಂತ್ ಎಂ.',en:'Prashanth M.'}, r:{kn:'ತಬಲಾ ಮತ್ತು ಗಿಟಾರ್',en:'Tabla and guitar'},
+  {i:'ಪ್ರ', ci:'P', c:'#E2503C', n:{kn:'ಪ್ರಶಾಂತ್ ಎಂ.',en:'Prashanth M.'}, r:{kn:'ತಬಲಾ ಮತ್ತು ಗಿಟಾರ್',en:'Tabla and guitar'},
    b:{kn:'ಲಯವನ್ನು ಬಾಯಲ್ಲಿ ಹೇಳಿಸಿ ಕಲಿಸುವ ಪದ್ಧತಿ ಇವರದು.',en:'Teaches rhythm by making you say it aloud first.'}},
-  {i:'ಭಾ', ci:'B', c:'#F2A20C', n:{kn:'ಭಾಗ್ಯಾ ಎಸ್.',en:'Bhagya S.'}, r:{kn:'ಪಿಟೀಲು',en:'Violin'},
+  {i:'ಭಾ', ci:'B', c:'#F0A517', n:{kn:'ಭಾಗ್ಯಾ ಎಸ್.',en:'Bhagya S.'}, r:{kn:'ಪಿಟೀಲು',en:'Violin'},
    b:{kn:'ಮೊದಲ ಎರಡು ತಿಂಗಳು ಭಂಗಿ ಮಾತ್ರ — ಬಿಡುವುದಿಲ್ಲ.',en:'Two months on posture alone, and she does not relent.'}},
-  {i:'ರೇ', ci:'R', c:'#A81D45', n:{kn:'ರೇಷ್ಮಾ ಬಿ.',en:'Reshma B.'}, r:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ',en:'Kids’ Sangeetha'},
+  {i:'ರೇ', ci:'R', c:'#2F3E9E', n:{kn:'ರೇಷ್ಮಾ ಬಿ.',en:'Reshma B.'}, r:{kn:'ಪುಟಾಣಿ ಸಂಗೀತ',en:'Kids’ Sangeetha'},
    b:{kn:'ಮಕ್ಕಳಿಗೆ ಪಾಠ ಮಾಡುವುದಿಲ್ಲ, ಆಟ ಆಡಿಸುತ್ತಾರೆ.',en:'Does not drill children — plays games with them instead.'}},
-  {i:'ಕಿ', ci:'K', c:'#0C7D82', n:{kn:'ಕಿರಣ್ ಶೆಟ್ಟಿ',en:'Kiran Shetty'}, r:{kn:'ಮೃದಂಗ · ವೇದಿಕೆ ಪಕ್ಕವಾದ್ಯ',en:'Mridangam · Recital accompanist'},
+  {i:'ಕಿ', ci:'K', c:'#0E8074', n:{kn:'ಕಿರಣ್ ಶೆಟ್ಟಿ',en:'Kiran Shetty'}, r:{kn:'ಮೃದಂಗ · ವೇದಿಕೆ ಪಕ್ಕವಾದ್ಯ',en:'Mridangam · Recital accompanist'},
    b:{kn:'ವರ್ಷದ ಎರಡೂ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ಸಾಥ್ ಇವರದೇ.',en:'Plays behind every student at both annual recitals.'}}
 ];
 
@@ -1307,7 +1307,7 @@ function openSheet(idx){
     <div style="background:linear-gradient(150deg,${c.hue[0]},${c.hue[1]});margin:-34px -34px 22px;padding:38px 34px 30px;border-radius:28px 28px 0 0">
       <span class="pill" style="background:rgba(255,255,255,.72);color:var(--ink)">${esc(L(cat))}</span>
       <h2 class="display" id="sheetTitle">${esc(L(c.t))}</h2>
-      <p style="margin:0;color:rgba(59,21,35,.72);font-size:18px">${esc(L(c.line))}</p>
+      <p style="margin:0;color:rgba(23,34,74,.72);font-size:18px">${esc(L(c.line))}</p>
     </div>`;
   document.getElementById('sheetBody').innerHTML = `
     <dl class="facts">
