@@ -186,7 +186,17 @@ html[data-lang="kn"] .board-top .k{letter-spacing:.03em; text-transform:none; fo
 .rung{background:linear-gradient(180deg,#fff,#FDF0E6)}
 .rung.v{background:linear-gradient(180deg,#fff,var(--brand-soft)); border-color:#EFC9D4}
 .rung.v .g{color:var(--brand)}
-.rung .s{font-family:'JetBrains Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.02em}
+.rung .s{font-family:'JetBrains Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.02em; color:var(--ink2)}
+.rung .g{position:relative; display:inline-block; padding:.34em .06em 0}
+.rung .g::after,.rung .g::before{
+  content:""; position:absolute; left:50%; width:4px; height:4px; border-radius:50%;
+  background:currentColor; opacity:0;
+}
+.rung .g.hi::after{top:.02em; transform:translateX(-50%); opacity:1}
+.rung .g.hi2::after{top:.02em; transform:translateX(-50%) translateX(-4px); opacity:1}
+.rung .g.hi2::before{top:.02em; transform:translateX(-50%) translateX(4px); opacity:1}
+.rung .g.lo::after{bottom:-.16em; transform:translateX(-50%); opacity:1}
+.octs{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px}
 .board-foot{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:20px}
 .tiny{
   background:var(--hall); border:1px solid var(--line); border-radius:99px; padding:9px 17px;
@@ -523,6 +533,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
           <span class="k" data-i18n="board.title"></span>
           <span class="k" id="swaraName" style="color:var(--brand)"></span>
         </div>
+        <div class="octs" id="octs" role="group" aria-label="Octave"></div>
         <div class="rungs" id="rungs" role="group" aria-label="Swara scale"></div>
         <div class="board-foot">
           <button class="tiny" type="button" id="btnAaro" data-i18n="board.aarohana"></button>
@@ -708,10 +719,13 @@ const STR = {
 
   'board.title':{kn:'ಒಂದು ಅಷ್ಟಕದ ಹನ್ನೆರಡು ಸ್ವರಸ್ಥಾನ',en:'All twelve swarasthanas in one octave'},
   'board.sub':{kn:'ಒತ್ತಿ ನೋಡಿ',en:'tap to hear'},
+  'oct.mandra':{kn:'ಮಂದ್ರ ಸ್ಥಾಯಿ',en:'Mandra · lower'},
+  'oct.madhya':{kn:'ಮಧ್ಯ ಸ್ಥಾಯಿ',en:'Madhya · middle'},
+  'oct.tara':{kn:'ತಾರ ಸ್ಥಾಯಿ',en:'Tara · upper'},
   'board.all':{kn:'ಹನ್ನೆರಡೂ ನುಡಿಸಿ',en:'Play all twelve'},
   'board.aarohana':{kn:'ಆರೋಹಣ ನುಡಿಸಿ',en:'Play the aarohana'},
   'board.drone':{kn:'ಶ್ರುತಿ',en:'Shruti drone'},
-  'board.hint':{kn:'ಅಗಲದ ಸ್ತಂಭಗಳು ಶುದ್ಧ ಸ್ವರ, ಕಿರಿದಾದವು ವಿಕೃತ ಸ್ವರ.',en:'The wide rungs are the natural swaras; the narrow ones are the altered positions.'},
+  'board.hint':{kn:'ಅಗಲದು ಶುದ್ಧ ಸ್ವರ, ಕಿರಿದು ವಿಕೃತ ಸ್ವರ. ಅಕ್ಷರದ ಕೆಳಗಿನ ಬಿಂದು ಮಂದ್ರ ಸ್ಥಾಯಿ, ಮೇಲಿನದು ತಾರ ಸ್ಥಾಯಿ. ಸಣ್ಣ ಅಕ್ಷರ ಕೀಬೋರ್ಡ್‌ನ ಸಮಾನ ಸ್ವರ.',en:'Wide rungs are the natural swaras, narrow ones the altered positions. A dot under a letter means the lower octave, a dot over it the upper. The small grey letter is the equivalent on a keyboard.'},
   'notice.label':{kn:'ಸೂಚನಾ ಫಲಕ',en:'Notice board'},
 
   'about.eyebrow':{kn:'ನಮ್ಮ ಬಗ್ಗೆ',en:'About us'},
@@ -1083,21 +1097,23 @@ const SOCIAL = [
 ];
 
 const SWARAS = [
-  {g:'ಸ',   r:'Sa',  f:261.63, kn:'ಷಡ್ಜ',                    en:'Shadja'},
-  {g:'ರಿ₁', r:'Ri₁', f:279.07, v:1, kn:'ಶುದ್ಧ ರಿಷಭ',      en:'Shuddha Rishabha'},
-  {g:'ರಿ₂', r:'Ri₂', f:294.33, kn:'ಚತುಶ್ಶ್ರುತಿ ರಿಷಭ', en:'Chatushruti Rishabha'},
-  {g:'ಗ₂',  r:'Ga₂', f:313.96, v:1, kn:'ಸಾಧಾರಣ ಗಾಂಧಾರ',     en:'Sadharana Gandhara'},
-  {g:'ಗ₃',  r:'Ga₃', f:327.04, kn:'ಅಂತರ ಗಾಂಧಾರ',            en:'Antara Gandhara'},
-  {g:'ಮ₁',  r:'Ma₁', f:348.84, kn:'ಶುದ್ಧ ಮಧ್ಯಮ',           en:'Shuddha Madhyama'},
-  {g:'ಮ₂',  r:'Ma₂', f:367.92, v:1, kn:'ಪ್ರತಿ ಮಧ್ಯಮ',      en:'Prati Madhyama'},
-  {g:'ಪ',   r:'Pa',  f:392.45, kn:'ಪಂಚಮ',                    en:'Panchama'},
-  {g:'ದ₁',  r:'Dha₁',f:418.61, v:1, kn:'ಶುದ್ಧ ಧೈವತ',      en:'Shuddha Dhaivata'},
-  {g:'ದ₂',  r:'Dha₂',f:436.05, kn:'ಚತುಶ್ಶ್ರುತಿ ಧೈವತ', en:'Chatushruti Dhaivata'},
-  {g:'ನಿ₂', r:'Ni₂', f:470.93, v:1, kn:'ಕೈಶಿಕಿ ನಿಷಾದ',   en:'Kaishiki Nishada'},
-  {g:'ನಿ₃', r:'Ni₃', f:490.56, kn:'ಕಾಕಲಿ ನಿಷಾದ',        en:'Kakali Nishada'},
-  {g:'ಸ̇',  r:'Sȧ', f:523.26, kn:'ತಾರ ಷಡ್ಜ',              en:'Upper Shadja'}
+  {g:'ಸ',        e:'S',   w:'C',  f:261.63,      kn:'ಷಡ್ಜ',                              en:'Shadja'},
+  {g:'ರಿ₁', e:'R₁', w:'C♯', f:279.07, v:1, kn:'ಶುದ್ಧ ರಿಷಭ',            en:'Shuddha Rishabha'},
+  {g:'ರಿ₂', e:'R₂', w:'D',  f:294.33,      kn:'ಚತುಶ್ಶ್ರುತಿ ರಿಷಭ', en:'Chatushruti Rishabha'},
+  {g:'ಗ₂',  e:'G₂', w:'D♯', f:313.96, v:1, kn:'ಸಾಧಾರಣ ಗಾಂಧಾರ',     en:'Sadharana Gandhara'},
+  {g:'ಗ₃',  e:'G₃', w:'E',  f:327.04,      kn:'ಅಂತರ ಗಾಂಧಾರ',                  en:'Antara Gandhara'},
+  {g:'ಮ₁',  e:'M₁', w:'F',  f:348.84,      kn:'ಶುದ್ಧ ಮಧ್ಯಮ',                 en:'Shuddha Madhyama'},
+  {g:'ಮ₂',  e:'M₂', w:'F♯', f:367.92, v:1, kn:'ಪ್ರತಿ ಮಧ್ಯಮ',            en:'Prati Madhyama'},
+  {g:'ಪ',        e:'P',   w:'G',  f:392.45,      kn:'ಪಂಚಮ',                              en:'Panchama'},
+  {g:'ದ₁',  e:'D₁', w:'G♯', f:418.61, v:1, kn:'ಶುದ್ಧ ಧೈವತ',            en:'Shuddha Dhaivata'},
+  {g:'ದ₂',  e:'D₂', w:'A',  f:436.05,      kn:'ಚತುಶ್ಶ್ರುತಿ ಧೈವತ', en:'Chatushruti Dhaivata'},
+  {g:'ನಿ₂', e:'N₂', w:'A♯', f:470.93, v:1, kn:'ಕೈಶಿಕಿ ನಿಷಾದ',   en:'Kaishiki Nishada'},
+  {g:'ನಿ₃', e:'N₃', w:'B',  f:490.56,      kn:'ಕಾಕಲಿ ನಿಷಾದ',            en:'Kakali Nishada'},
+  {g:'ಸ',        e:'S',   w:'C',  f:523.26, top:1, kn:'ಷಡ್ಜ',                       en:'Shadja'}
 ];
-/* the natural seven — Shankarabharanam — for the aarohana run */
+/* mandra · madhya · tara */
+const OCT = [0.5, 1, 2];
+let oct = 1;
 const SHUDDHA = [0,2,4,5,7,9,11,12];
 
 /* ═══════════════════════════════════════════════════════════
@@ -1134,6 +1150,11 @@ function paintLedger(){
   ).join('');
 }
 
+function octDot(s){
+  if (oct === 0) return s.top ? '' : 'lo';        /* mandra: dot below, closing Sa is madhya */
+  if (oct === 1) return s.top ? 'hi' : '';        /* madhya: bare, closing Sa carries a dot */
+  return s.top ? 'hi2' : 'hi';                    /* tara: dot above, closing Sa gets two */
+}
 function paintRungs(){
   const box = document.getElementById('rungs');
   box.innerHTML = '';
@@ -1144,14 +1165,27 @@ function paintRungs(){
     b.style.height = (40 + i * 4.6) + '%';
     b.style.flexGrow = s.v ? '.62' : '1';
     b.setAttribute('aria-label', L(s));
-    b.innerHTML = `<span class="g">${s.g}</span><span class="s">${s.r}</span>`;
+    b.innerHTML = `<span class="g ${octDot(s)}">${lang === 'kn' ? s.g : s.e}</span><span class="s">${s.w}</span>`;
     const say = () => { document.getElementById('swaraName').textContent = L(s); };
-    b.onclick = () => { pluck(s.f, b); say(); };
+    b.onclick = () => { pluck(s.f * OCT[oct], b); say(); };
     b.onmouseenter = say;
     b.onfocus = say;
     box.appendChild(b);
   });
   document.getElementById('swaraName').textContent = t('board.sub');
+}
+
+function paintOcts(){
+  const box = document.getElementById('octs');
+  box.innerHTML = '';
+  ['oct.mandra','oct.madhya','oct.tara'].forEach((k, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'tiny';
+    b.textContent = t(k);
+    b.setAttribute('aria-pressed', String(oct === i));
+    b.onclick = () => { oct = i; paintOcts(); paintRungs(); };
+    box.appendChild(b);
+  });
 }
 
 function paintChips(){
@@ -1321,7 +1355,7 @@ function pluck(freq, el){
 function runScale(idxs, gap){
   const rungs = document.querySelectorAll('.rung');
   idxs.forEach((si, step) => setTimeout(() => {
-    pluck(SWARAS[si].f, rungs[si]);
+    pluck(SWARAS[si].f * OCT[oct], rungs[si]);
     document.getElementById('swaraName').textContent = L(SWARAS[si]);
   }, step * gap));
 }
@@ -1339,7 +1373,8 @@ document.getElementById('btnDrone').onclick = function(){
   const g = a.createGain();
   g.gain.value = 0.0001; g.connect(a.destination);
   g.gain.exponentialRampToValueAtTime(0.07, a.currentTime + 1.2);
-  const osc = [130.81, 261.63, 392.45].map(f => {
+  const osc = [130.81, 261.63, 392.45].map(base => {
+    const f = base * OCT[oct];
     const o = a.createOscillator(), og = a.createGain();
     o.type = 'sine'; o.frequency.value = f; og.gain.value = 0.4;
     o.connect(og); og.connect(g); o.start(); return o;
@@ -1414,7 +1449,7 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 document.querySelectorAll('.rise').forEach(x => io.observe(x));
 
 function render(){
-  paintStatic(); paintTicker(); paintLedger(); paintRungs(); paintChips(); paintCourses();
+  paintStatic(); paintTicker(); paintLedger(); paintOcts(); paintRungs(); paintChips(); paintCourses();
   paintPath(); paintTeam(); paintBatches(); paintVoices(); paintReach(); paintForm();
 }
 render();
